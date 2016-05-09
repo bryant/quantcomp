@@ -1,2 +1,2 @@
-solved problems from Nielsen and Chuang, "Quantum Computation and Quantum
-Information."
+Solved problems from Nielsen and Chuang's <i>Quantum Computation and Quantum
+Information</i>.
