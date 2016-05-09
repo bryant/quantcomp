@@ -1,0 +1,20 @@
+\documentclass{article}
+\include{preamble}
+\begin{document}
+\ignorespaces
+\parindent 0pt
+
+\par Let $H$ be a Hamiltonian (which is defined Hermitian) and let $A = -i
+h^{-1} H$. Then $A* = (-i h^{-1} H)* = i h^{-1} H^* = i h^{-1} H = -A$. Since
+$A$ trivially commutes with $-A$,
+
+\begin{align}
+U U^* &= e^{-A t} \left( e^{-A t} \right)^* \\
+&= e^{-A t} e^{(-A)^* t} \\
+&= e^{-A t} e^{A t} \\
+&= e^{-A t + A t} \\
+&= e^0 = I
+\end{align}
+
+In general, the exponent of a skew-Hermitian matrix is unitary.
+\end{document}
