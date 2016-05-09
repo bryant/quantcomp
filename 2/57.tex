@@ -1,0 +1,24 @@
+\documentclass{article}
+\include{preamble}
+\begin{document}
+\ignorespaces
+\parindent 0pt
+
+\par Given a quantum state $\ket{\psi}$ and two measurement operators $L, M$,
+the final state after measurement by $M$ followed by $L$ is:
+
+\begin{align}
+\ket{\psi} &\xrightarrow{M} \braket{\psi | M^* M | \psi}^{-\frac12} \ket{\psi} =
+r M \ket{\psi}  = r \ket{\phi} \\
+r \ket{\phi} &\xrightarrow{L} \braket{\phi | L^* r^2 L | \phi}^{-\frac12} r L
+\ket{\phi} \\
+&= \braket{\phi | L^* L | \phi}^{-\frac12} L \ket{\phi} \\
+&= \braket{\psi | M^* L^* L M | \psi}^{-\frac12} L M \ket{\psi} \\
+&= \braket{\psi | \left( L M \right)^* \left( L M \right) | \psi}^{-\frac12} L M
+\ket{\psi} \\
+&= \braket{\psi | N^* N | \psi}^{-\frac12} N \ket{\psi}
+\end{align}
+
+which is the final state of a single measurement $N = L M$.
+\end{document}
+
