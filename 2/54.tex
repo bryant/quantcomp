@@ -1,0 +1,24 @@
+\documentclass{article}
+\include{preamble}
+\begin{document}
+\ignorespaces
+\parindent 0pt
+
+\par If $A$ and $B$ are Hermitian and commute then by the simultaneous
+diagonalization theorem, there exists an orthonormal basis $\ket{i}$ such that
+$A = \sum_i{\lambda_i \ket{i} \bra{i}}$ and $B = \sum_i{\gamma_i \ket{i}
+\bra{i}}$, with $\lambda_i, \gamma_i \in \reals$. Then:
+
+\begin{align}
+e^A e^B &= \left( \sum_i{e^{\lambda_i} \ket{i} \bra{i}} \right) \left(
+\sum_i{e^{\gamma_i} \ket{i} \bra{i}} \right) \\
+&= \sum_i{\sum_j{e^{\lambda_i + \gamma_j} \ket{i} \bra{i|j} \bra{j}}} \\
+&= \sum_i{\sum_j{e^{\lambda_i + \gamma_j} \delta_{ij} \ket{i} \bra{j}}} \\
+&= \sum_i{e^{\lambda_i + \gamma_j} \ket{i} \bra{i}} \\
+&= \exp \left( {\sum_i{\left( \lambda_i + \gamma_j \right) \ket{i} \bra{i}}}
+\right) \\
+&= \exp \left( {\sum_i{\lambda_i \ket{i} \bra{i}} + \sum_i{\gamma_i \ket{i}
+\bra{i}}} \right) \\
+&= e^{A + B}
+\end{align}
+\end{document}
