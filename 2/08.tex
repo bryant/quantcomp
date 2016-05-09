@@ -1,0 +1,30 @@
+\documentclass{article}
+\include{preamble}
+\begin{document}
+\ignorespaces
+\parindent 0pt
+
+\par Each $\ket{v_{k+1}}$ is scaled by its norm and hence normal.
+
+\par Orthogonality is proved by induction. Case $i = 1$: $\braket{v_0|v_1}
+\propto \braket{v_0|w_1} - \bra{v_0} \braket{v_0|w_1} \ket{v_0} =
+\braket{v_0|w_1} - \braket{v_0|w_1} = 0$. Case $i = 2$:
+
+\begin{align}
+\braket{v_0|v_2} &\propto \braket{v_0|w_2} - \bra{v_0} \braket{v_0|w_2}
+\ket{v_0} - \bra{v_0} \braket{w_2|v_1} \ket{v_1} \\
+&= \braket{v_0|w_2} - \braket{v_0|w_2} = 0 \\
+\braket{v_1|v_2} &\propto \braket{v_1|w_2} - \bra{v_1} \braket{v_0|w_2}
+\ket{v_0} - \bra{v_1} \braket{v_1|w_2} \ket{v_1} = 0
+\end{align}
+
+\par Case $n + 1$: Given $\braket{v_i|v_n} = 0$ where $i = 0, \ldots, n - 1$:
+
+\begin{align}
+\braket{v_n|v_{n+1}} &\propto \braket{v_n|w_{n+1}} -
+\sum_{i = 0}^n{\braket{v_n|v_i} \braket{v_i|w_{n+1}}} \\
+&= \braket{v_n|w_{n+1}} - \sum_{i = 0}^{n - 1}{\braket{v_n|v_i}
+\braket{v_i|w_{n+1}}} - \braket{v_n|v_n} \braket{v_n|w_{n+1}} \\
+&= \braket{v_n|w_{n+1}} - \braket{v_n|w_{n+1}} = 0
+\end{align}
+\end{document}
