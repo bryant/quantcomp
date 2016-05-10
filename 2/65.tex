@@ -1,0 +1,43 @@
+\documentclass{article}
+\include{preamble}
+\begin{document}
+\ignorespaces
+\parindent 0pt
+
+\par If $\ket{a} = 2^{-\frac{1}{2}} \left( \ket{0} + \ket{1} \right)$ and
+$\ket{b} = 2^{-\frac{1}{2}} \left( \ket{0} + \ket{1} \right)$, the two will be
+distinct in the basis $\ket{+} = \ket{a}$ and $\ket{-} = \ket{b}$. In other
+words, the Hermitian observable $M = m_{+} \ket{+} \bra{+} + m_{-} \ket{-}
+\bra{-}$ will have expectation $E_{\ket{a}} \left[ M \right] = m_{+}$ while
+$E_{\ket{b}} \left[ M \right] = m_{-}$.
+
+\par More generally, if $\ket{a} = \alpha \ket{0} + \beta e^{i \theta_a}
+\ket{1}$ and $\ket{b} = \alpha \ket{0} + \beta e^{i \theta_b} \ket{1}$ where
+$\theta_a, \theta_b, \alpha, \beta \in \reals$ and $\theta_a \ne \theta_b$ and
+$\braket{a|a} = \braket{b|b} = 1$, we can use Gram-Schmidt to construct a
+Hermitian observable under which the two will have differing expectations:
+
+\begin{align}
+\ket{+} &= \ket{a} \\
+\ket{-} &= N \left( \ket{b} - \mathbf{proj}_a \left( b \right) \right), N \in
+\reals \\
+&= N \left( \ket{b} - \braket{a|b} \ket{a} \right)
+\end{align}
+
+Here, $N$ is a normalization constant to ensure that $\braket{-|-} = 1$. Under
+this basis, $\braket{b|-} = N \left( \braket{b|b} - \braket{a|b} \braket{b|a}
+\right) = N \left( 1 - z^* z \right)$ where $z = \alpha^2 + \beta^2 e^{i k} = u
++ v e^{i k}$ and $k = \theta_a - \theta_b \in \left( 0, 2 \pi \right]
+\Rightarrow \cos k < 1$. We know that $u$ and $v$ are strictly non-zero (or else
+one of $\alpha$ or $\beta$ would be zero, which would make $\ket{a}$ and
+$\ket{b}$ identical or differing by a global phase, respectively):
+
+\begin{align}
+z^* z &= u^2 + v^2 + 2 u v \cos k \\
+&< u^2 + v^2 + 2 u v \\
+&= \left( u + v \right)^2 \\
+&= 1^2 = 1
+\end{align}
+
+Thus, $\braket{b|-} = N \left( 1 - z^* z \right) > 0 = \braket{a|-}$.
+\end{document}
