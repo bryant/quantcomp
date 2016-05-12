@@ -19,7 +19,12 @@ positive operators. A positive operator A is defined to be an operator such that
 for any vector $\ket{v}$, $\left( \ket{v}, A \ket{v} \right)$ is a real,
 non-negative number."
 \end{quote}
-\par If A is a positive operator, then $k = \braket{x|A|x} \ge 0$ is real and
-so, trivially, $k = k^* = \braket{x|A^*|x} = \braket{x|A|x}$, thus $A = A^*$.
+\par If $A \in \complex^{n \times n}$ is a positive operator, then $k =
+\braket{x|A|x} \ge 0$ is real and so, trivially, $k = k^* = \braket{x|A^*|x} =
+\braket{x|A|x}$, thus $A = A^*$.
+
+\par Note that this argument fails for $B \in \reals^{n \times n}$, since
+$\braket{x|B|x} = x^T B x = \braket{x|C|x}$ does not imply that $B = C$; $B$
+could, for instance, be anti-symmetric.
 \end{document}
 
