@@ -1,0 +1,23 @@
+\documentclass[all.tex]{subfiles}
+\begin{document}
+\ignorespaces
+\parindent 0pt
+
+\par Expand into matrix form:
+\begin{align}
+X_1 Z_2 = X \otimes Z &= \begin{pmatrix} 0 & Z \\ Z & 0 \end{pmatrix} \\
+&= \begin{pmatrix} 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & -1 \\ 1 & 0 & 0 & 0 \\ 0 & -1 &
+0 & 0 \end{pmatrix}
+\end{align}
+
+Since $X \otimes Z$ is Hermitian, the expectation would be $\braket{\psi| X
+\otimes Z | \psi}$ for $\psi = \left( \ket{00} + \ket{11} \right) / \sqrt{2}$:
+
+\begin{align}
+\frac{1}{2} \begin{pmatrix} 1 & 0 & 0 & 1 \end{pmatrix} \left( X \otimes Z
+\right) \begin{pmatrix} 1 \\ 0 \\ 0 \\ 1 \end{pmatrix} &= \frac{1}{2}
+\begin{pmatrix} 1 & 0 & 0 & 1 \end{pmatrix} \begin{pmatrix} 0 \\ -1 \\ 1 \\ 0
+\end{pmatrix} \\
+&= 0
+\end{align}
+\end{document}
