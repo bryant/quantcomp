@@ -29,7 +29,8 @@ def build_all(subdir, preamble="preamble.tex"):
         return re.match(r"\d+\.tex", s) and os.path.isfile(path)
 
     doc = d = make_doc(preamble)
-    with d.create(Section("", numbering=True)):
+    chap = re.search(r"\d+", subdir).group(0)
+    with d.create(Section(chap, numbering=False)):
         with d.create(ProblemList()) as probs:
             files = sorted(filter(is_numbered_tex_file, os.listdir(subdir)))
             for subfile in files:
