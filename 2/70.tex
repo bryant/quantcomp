@@ -1,0 +1,35 @@
+\par Since $E$ is a positive operator, it is also Hermitian. Letting $E =
+\begin{pmatrix} u & v \\ v^* & w \end{pmatrix}$ ($u, w \in \reals$) and
+computing the Kronecker product:
+
+\begin{align}
+E \otimes I &= \begin{pmatrix} u & 0 & v & 0 \\ 0 & u & 0 & v \\ v^* & 0 & w & 0
+\\ 0 & v^* & 0 & w \end{pmatrix}
+\end{align}
+
+\par Case $\ket{\psi_0} = \left( \ket{00} + \ket{11} \right) / \sqrt{2}$:
+
+\begin{align}
+\braket{\psi_0 | E \otimes I | \psi_0} &= \frac{1}{2} \begin{pmatrix} 1 & 0 & 0
+& 1 \end{pmatrix} \begin{pmatrix} u \\ v \\ v^* \\ w \end{pmatrix} \\
+&= \frac{u + w}{2}
+\end{align}
+
+\par Case $\ket{\psi_1} = \left( \ket{00} - \ket{11} \right) / \sqrt{2}$:
+
+\begin{align}
+\braket{\psi_1 | E \otimes I | \psi_1} &= \frac{1}{2} \begin{pmatrix} 1 & 0 & 0
+& -1 \end{pmatrix} \begin{pmatrix} u \\ v \\ v^* \\ -w \end{pmatrix} \\
+&= \frac{u + w}{2}
+\end{align}
+
+\par Case $\ket{\psi_2} = \left( \ket{01} + \ket{10} \right) / \sqrt{2}$:
+$\frac{1}{2} \begin{pmatrix} 0 & 1 & 1 & 0 \end{pmatrix} \begin{pmatrix} v \\ u
+\\ w \\ v^* \end{pmatrix} = \frac{u + w}{2}$.
+
+\par Case $\ket{\psi_3} = \left( \ket{01} - \ket{10} \right) / \sqrt{2}$:
+$\frac{1}{2} \begin{pmatrix} 0 & 1 & -1 & 0 \end{pmatrix} \begin{pmatrix} v \\ u
+\\ -w \\ v^* \end{pmatrix} = \frac{u + w}{2}$.
+
+\par So it would be impossible to distinguish between Bell states via
+measurement of only one half of the entangled pair.
