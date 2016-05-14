@@ -43,12 +43,15 @@ args = ArgumentParser()
 args.add_argument("texfile_or_chapdir",
                    help="Either a path to a solution TeX file or a subdirectory\
                          containing the all solutions of a chapter.")
+args.add_argument("-c", dest="compiler", default="xelatex",
+                  help="TeX compiler (default: xelatex)")
+args.add_argument("-q", dest="quiet", default=False, action="store_true",
+                  help="Suppress TeX compiler output (default: False)")
 args.add_argument("-a", dest="all", default=False, action="store_true",
                   help="Build an entire chapter.")
 
 if __name__ == "__main__":
     opts = args.parse_args()
-    if opts.all:
-        build_all(opts.texfile_or_chapdir).generate_pdf()
-    else:
-        build_one(opts.texfile_or_chapdir).generate_pdf()
+    gen = build_all if opts.all else build_one
+    gen(opts.texfile_or_chapdir).generate_pdf(compiler=opts.compiler,
+                                              silent=opts.quiet)
