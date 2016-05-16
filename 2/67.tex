@@ -6,20 +6,19 @@ with $d < k$.
 \begin{align}
 A = I_V A I_W &= \left( \sum_{i = 0}^{k - 1}{\ket{i} \bra{i}} \right) A \left(
 \sum_{j = 0}^{d - 1}{\ket{j} \bra{j}} \right) \\
-&= \sum_i{\sum_j{\braket{i|A|j} \ket{i} \bra{j}}}
+&= \sum_i{\sum_j{\braket{i|A|j} \ket{i} \bra{j}}} \\
+&= \sum_j{\left( \sum_i{\braket{i|A|j} \ket{i}} \right) \bra{j}} \\
+&= \sum_j{\ket{u_j} \bra{j}}
 \end{align}
 
-Regrouping the sum:
+\par Each $\ket{u_j}$ can be viewed as a column in the matrix representations of
+$A$:
 
 \begin{align*}
-\ket{u_0} &= \left( \sum_i{\braket{i|A|0}} \right) \ket{0} \\
-\ket{u_1} &= \left( \sum_i{\braket{i|A|1}} \right) \ket{1} \\
-&\vdots \\
-\ket{u_{d-1}} &= \left( \sum_i{\braket{i|A|d-1}} \right) \ket{d-1} \\
-A &= \sum_{j = 0}^{d - 1}{\ket{u_j} \bra{j}}
+\ket{u_0} &= \sum_i{\braket{i|A|0} \ket{i}} = \sum_i{A_{i0} \ket{i}} \\
+\ket{u_1} &= \sum_i{\braket{i|A|1} \ket{i}} = \sum_i{A_{i1} \ket{i}} \\
+&\vdots
 \end{align*}
-
-Each $\ket{u_i}$ can be viewed as a column in the matrix representations of $A$.
 
 \par We also had $\braket{x|A^* A|y} = \braket{x|y}$, so $A^* A$ is necessarily
 the identity. In other words,
