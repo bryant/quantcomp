@@ -18,7 +18,7 @@ orthogonal to each other. Then, $\rho^2 = \sum_{i, j}{p_i p_j
 \ket{\psi_i} \bra{\psi_j} \right)} \\
 &= \sum_{i \ne j}{p_i p_j \mathrm{tr} \left( \ket{\psi_i} \bra{\psi_j} \right)}
 + \sum_k{p_k^2 \mathrm{tr} \left( \ket{\psi_k} \bra{\psi_k} \right)} \\
-&= \sum_{i \ne j}{p_i p_j \braket{\psi_i|\psi_j}} + \sum_k{p_k^2
+&= \sum_{i \ne j}{p_i p_j \braket{\psi_j|\psi_i}} + \sum_k{p_k^2
 \braket{\psi_k|\psi_k}} \\
 &\le \sum_{i \ne j}{p_i p_j} + \sum_k{p_k^2} \\
 &= \left( \sum_i{p_i} \right)^2 = 1
@@ -29,7 +29,7 @@ $p_i = 0$ (thus, $p_i p_r = \delta_{ir}$). Then:
 
 \begin{align}
 \mathrm{tr} \left( \rho^2 \right) &= \sum_{i \ne j}{p_i p_j
-\braket{\psi_i|\psi_j}} + \sum_k{p_k^2 \braket{\psi_k|\psi_k}} \\
+\braket{\psi_j|\psi_i}} + \sum_k{p_k^2 \braket{\psi_k|\psi_k}} \\
 &= \sum_k{p_k^2 \braket{\psi_k|\psi_k}} \\
 &= p_r^2 \braket{\psi_r|\psi_r} = 1^2 \cdot 1 = 1
 \end{align}
