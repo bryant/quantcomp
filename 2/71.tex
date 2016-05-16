@@ -33,3 +33,26 @@ $p_i = 0$ (thus, $p_i p_r = \delta_{ir}$). Then:
 &= \sum_k{p_k^2 \braket{\psi_k|\psi_k}} \\
 &= p_r^2 \braket{\psi_r|\psi_r} = 1^2 \cdot 1 = 1
 \end{align}
+
+\par Conversely, suppose that $\mathrm{tr} \left( \rho^2 \right) = 1$. Then,
+
+\begin{align}
+\sum_{i \ne j}{p_i p_j \braket{\psi_j|\psi_i}} + \sum_k{p_k^2
+\braket{\psi_k|\psi_k}} &= 1 \\
+\sum_{i \ne j}{p_i p_j \braket{\psi_j|\psi_i}} + \sum_k{p_k^2} &= \left(
+\sum_k{p^k} \right)^2 = \sum_{i \ne j}{p_i p_j} + \sum_k{p_k^2} \\
+\sum_{i \ne j}{p_i p_j \braket{\psi_j|\psi_i}} &= \sum_{i \ne j}{p_i p_j} \\
+p_i p_j \braket{\psi_j|\psi_i} &= p_i p_j, \quad i \ne j
+\end{align}
+
+Suppose that there exists a pair $r \ne s$ such that $p_r p_s > 0$. Then:
+
+$$
+p_r p_s \braket{\psi_s|\psi_r} = p_r p_s \Rightarrow \braket{\psi_s|\psi_r} = 1
+\Rightarrow \ket{\psi_r} = \ket{\psi_s} \Rightarrow r = s
+$$
+
+leading to a contradiction. So the product of probabilities for every pair of
+distinct states must be zero, which means that there can be at most one non-zero
+$p_r$.  They cannot all be zero either, because $\sum_k{p_k} = 1$. Thus,
+$\sum_k{p_k} = p_r = 1$.
