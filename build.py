@@ -10,9 +10,13 @@ def make_doc(preamble="preamble.tex"):
     doc.append(Command("ignorespaces"))
     return doc
 
+def read_one(texfile):
+    raw = open(texfile).read()
+    return NoEscape(raw.replace("\n\n", ""))
+
 def build_one(texfile, preamble="preamble.tex"):
     doc = make_doc(preamble)
-    doc.append(NoEscape(open(texfile).read()))
+    doc.append(read_one(texfile))
     return doc
 
 class ProblemList(Enumerate):
@@ -36,7 +40,7 @@ def build_all(subdir, preamble="preamble.tex"):
             for subfile in files:
                 path = os.path.join(subdir, subfile)
                 pnum = int(re.match(r"(\d+)\.tex", subfile).group(1)) - 1
-                probs.set_counter(pnum).add_item(NoEscape(open(path).read()))
+                probs.set_counter(pnum).add_item(read_one(path))
     return doc
 
 args = ArgumentParser()
