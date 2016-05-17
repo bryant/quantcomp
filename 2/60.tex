@@ -1,0 +1,75 @@
+\par For a normal vector $\vec{v} \in \reals^3$, the observable
+
+$$
+V = \vec{v} \cdot \vec{\sigma} = \begin{pmatrix} v_2 & v_0 - i v_1 \\ v_0 + i
+v_1 & -v_2 \end{pmatrix} = \begin{pmatrix} v_2 & c^* \\ c & -v_2 \end{pmatrix}
+$$
+
+\par has characteristic polynomial
+
+$$
+\lambda I - V = \lambda^2 - v_2^2 - \left( v_0^2 + v_1^2 \right) = \lambda^2 -
+\lVert v \rVert^2 = \lambda^2 - 1
+$$
+
+and thus eigenvalues $\lambda = \pm 1$. For $\lambda = 1$, its eigenvectors are:
+
+\begin{align}
+\begin{pmatrix} v_2 & c^* \\ c & -v_2 \end{pmatrix}
+\begin{pmatrix} x \\ y \end{pmatrix} &= \begin{pmatrix} x \\ y \end{pmatrix} \\
+\Rightarrow x v_2 + y c^* &= x \Rightarrow y = x \frac{1 - v_2}{c^*} \\
+\Rightarrow \hat{\ket{\psi_+}} &= \begin{pmatrix} 1 & \frac{1 - v_2}{c^*}
+\end{pmatrix}^T
+\end{align}
+
+\par Normalize:
+\begin{align}
+\braket{\hat{\psi_+}|\hat{\psi_+}} &= 1 + \frac{1 - 2 v_2 + v_2^2}{v_0^2 +
+v_1^2} \\
+&= \frac{1 - v_2^2 + 1 - 2 v_2 + v_2^2}{1 - v_2^2} \\
+&= \frac{2 - 2 v_2}{\left( 1 - v_2 \right) \left( 1 + v_2 \right)} \\
+&= \frac{2}{1 + v_2} \\
+\ket{\psi_+} &= \sqrt{\frac{1 + v_2}{2}} \begin{pmatrix} 1 & \frac{1 - v_2}{c^*}
+\end{pmatrix}^T
+\end{align}
+
+\par Projector:
+
+\begin{align}
+\ket{\psi_+} \bra{\psi_+} &= \frac{1 + v_2}{2} \begin{pmatrix} 1 & \frac{1 -
+v_2}{c} \\ \frac{1 - v_2}{c^*} & \frac{\left( 1 - v_2 \right)^2}{v_0^2 + v_1^2}
+\end{pmatrix} \\
+&= \frac{1}{2} \begin{pmatrix} 1 + v_2 & \frac{1 - v_2^2}{c} \\ \frac{1 -
+v_2^2}{c^*} & \frac{\left( 1 - v_2^2 \right) \left( 1 - v_2 \right)}{1 - v_2^2}
+\end{pmatrix} \\
+&= \frac{1}{2} \begin{pmatrix} 1 + v_2 & \frac{c^* c}{c} \\ \frac{c^* c}{c^*} &
+1 - v_2 \end{pmatrix} = \frac{1}{2} \left( I + V \right)
+\end{align}
+
+\par Similarly, For $\lambda = -1$:
+
+\begin{align}
+\begin{pmatrix} v_2 & c^* \\ c & -v_2 \end{pmatrix} \begin{pmatrix} x \\ y
+\end{pmatrix} &= -\begin{pmatrix} x \\ y \end{pmatrix} \\
+\Rightarrow x v_2 + y c^* &= -x \Rightarrow y = -x \frac{1 + v_2}{c^*} \\
+\Rightarrow \hat{\ket{\psi_-}} &= \begin{pmatrix} 1 & \frac{1 + v_2}{c^*}
+\end{pmatrix}^T
+\end{align}
+
+\par Normalize:
+
+\begin{align}
+\braket{\hat{\psi_-}|\hat{\psi_-}} &= 1 + \frac{1 + 2 v_2 + v_2^2}{v_0^2 +
+v_1^2} = \frac{2}{1 - v_2} \\
+\ket{\psi_-} &= \sqrt{\frac{1 - v_2}{2}} \ket{\hat{\psi_-}}
+\end{align}
+
+\par Projector:
+
+\begin{align}
+\ket{\psi_-} \bra{\psi_-} &= \frac{1 - v_2}{2} \begin{pmatrix} 1 & \frac{1 +
+v_2}{c} \\ \frac{1 + v_2}{c^*} & \frac{\left( 1 + v_2 \right)^2}{1 - v_2^2}
+\end{pmatrix} \\
+&= \frac{1}{2} \begin{pmatrix} 1 - v_2 & \frac{c^* c}{c} \\ \frac{c^* c }{c^*} &
+1 + v_2 \end{pmatrix} = \frac{1}{2} \left( I - V \right)
+\end{align}
