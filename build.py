@@ -1,4 +1,5 @@
-from pylatex import Document, Package, Section, Command, NoEscape, Enumerate
+from pylatex import (Document, Package, Section, Command, NoEscape, Enumerate,
+                     Subsection)
 from argparse import ArgumentParser
 import os
 import re
@@ -28,19 +29,25 @@ class ProblemList(Enumerate):
         return "enumerate"
 
 def build_all(subdir, preamble="preamble.tex"):
-    def is_numbered_tex_file(s):
-        path = os.path.join(subdir, s)
-        return re.match(r"\d+\.tex", s) and os.path.isfile(path)
-
     doc = d = make_doc(preamble)
     chap = re.search(r"\d+", subdir).group(0)
     with d.create(Section(chap, numbering=False)):
-        with d.create(ProblemList()) as probs:
-            files = sorted(filter(is_numbered_tex_file, os.listdir(subdir)))
-            for subfile in files:
-                path = os.path.join(subdir, subfile)
-                pnum = int(re.match(r"(\d+)\.tex", subfile).group(1)) - 1
-                probs.set_counter(pnum).add_item(read_one(path))
+        exos = ProblemList()
+        probs = ProblemList()
+
+        files = sorted(os.listdir(subdir))
+        for subfile in files:
+            path = os.path.join(subdir, subfile)
+
+            if subfile.startswith("p"):
+                pnum = int(re.match(r"p(\d+)\.tex", subfile).group(1))
+                probs.set_counter(pnum - 1).add_item(read_one(path))
+            elif re.match(r"^\d+\.tex", subfile):
+                pnum = int(re.match(r"(\d+)\.tex", subfile).group(1))
+                exos.set_counter(pnum - 1).add_item(read_one(path))
+
+        d.append(Subsection("Exercises", numbering=False, data=exos))
+        d.append(Subsection("Problems", numbering=False, data=probs))
     return doc
 
 args = ArgumentParser()
