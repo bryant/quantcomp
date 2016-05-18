@@ -1,0 +1,20 @@
+We already showed in Exercise 60 that for a normal $\vec{n} \in \reals$,
+$\vec{n} \cdot \vec{\sigma}$ has eigenvalues $\pm 1$ and eigenvectors $\ket{+}$
+and $\ket{-}$, whose corresponding projectors are
+
+\begin{align}
+P_+ = \ket{+} \bra{+} &= \frac{I + \vec{n} \cdot \vec{\sigma}}{2} \\
+P_- = \ket{-} \bra{-} &= \frac{I - \vec{n} \cdot \vec{\sigma}}{2}
+\end{align}
+
+Using the definition of an operator function:
+
+\begin{align}
+f \left( \theta \vec{n} \cdot \vec{\sigma} \right) &= f \left( \sum_i{\theta
+\lambda_i \ket{i} \bra{i}} \right) \\
+&= \sum_i{f \left( \theta \lambda_i \right) \ket{i} \bra{i}} \\
+&= f \left( \theta \right) \frac{I + \vec{n} \cdot \vec{\sigma}}{2} + f \left(
+-\theta \right) \frac{I - \vec{n} \cdot \vec{\sigma}}{2} \\
+&= \frac{f_\theta + f_{-\theta}}{2} I + \frac{f_\theta - f_{-\theta}}{2} \vec{n}
+\cdot \vec{\sigma}
+\end{align}
