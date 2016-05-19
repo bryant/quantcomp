@@ -1,0 +1,64 @@
+\proplabel{Setup}: Let $\{p_j, \ket{\psi_j}\}$ be an ensemble of qubit states.
+Each individual $\ket{\psi_j} = \cos \left( \theta_j / 2 \right) \ket{0} + e^{i
+\phi_j} \sin \left( \theta_j / 2 \right) \ket{1}$ has a corresponding point on
+the Bloch sphere $\left( x_j, y_j, z_j \right) = \left( \cos \phi_j \sin
+\theta_j, \sin \phi_j \sin \theta_j, \cos \theta_j \right)$. Then we have
+
+\begin{align}
+\ket{\psi_j} \bra{\psi_j} &= \begin{pmatrix} \cos^2 \frac{\theta_j}{2} & e^{-i
+\phi_j} \cos \left( \frac{\theta_j}{2} \right) \sin \left( \frac{\theta_j}{2}
+\right) \\ e^{i \phi_j} \cos \left( \frac{\theta_j}{2} \right) \sin \left(
+\frac{\theta_j}{2} \right) & -\sin^2 \frac{\theta_j}{2} \end{pmatrix} \\
+&= \begin{pmatrix} \frac{1 + \cos \theta_j}{2} & e^{-i \phi_j} \frac{\sin
+\theta_j}{2} \\ e^{i \phi_j} \frac{\sin \theta_j}{2}  & \frac{1 - \cos
+\theta_j}{2} \end{pmatrix} \\
+&= \frac{1}{2} \begin{pmatrix} 1 + z_j & x_j - i y_j \\ x_j + i y_j & 1 - z_j
+\end{pmatrix} \\
+&= \frac{1}{2} \left( I + \left( x_j, y_j, z_j \right) \cdot \vec{\sigma}
+\right) = \frac{I + \vec{n_j} \cdot \vec{\sigma}}{2}
+\end{align}
+
+where $\left\lVert n_j \right\rVert = 1$. The corresponding density matrix is
+
+\begin{align}
+\rho &= \sum_j{p_j \ket{\psi_j} \bra{\psi_j}} \\
+&= \frac{1}{2} \sum_j{p_j \left( I + \vec{n_j} \cdot \vec{\sigma} \right)} \\
+&= \frac{1}{2} \left( \sum_j{p_j I} + \vec{\sigma} \cdot \sum_j{p_j \vec{n_j}}
+\right) \\
+&= \frac{1}{2} \left(I + \vec{\sigma} \cdot \vec{n} \right)
+\end{align}
+
+where $\sum_j{p_j I} = \sum_j{p_j} = 1$ and we have defined $\vec{n} =
+\sum_j{p_j \vec{n_j}}$.
+
+\begin{enumerate}
+\item By the triangle inequality, $\left\lVert n \right\rVert = \left\lVert
+\sum_j{p_j n_j} \right\rVert \le \sum_j{p_j \left\lVert n_j \right\rVert} =
+\sum_j{p_j} = 1$.
+
+\item If $\rho = I / 2$, then it must be that $\vec{n} \cdot \vec{\sigma} = 0
+\Rightarrow \vec{n} = 0 = \sum_j{p_j \vec{n_j}}$ which must mean that all $p_j$
+are identical.
+
+\item In a pure state, $p_j = \delta_{jr}$ for some fixed $r$. Thus,
+$\left\lVert \vec{n} \right\rVert = \left\lVert \vec{n_r} \right\rVert = 1$.
+Conversely, if $\left\lVert \vec{n} \right\rVert = 1$, then $\left\lVert \vec{n}
+\right\rVert = \sum_j{\left\lVert p_j \vec{n_j} \right\rVert}$.  Suppose there
+was a pair $p_r, p_s > 0$. Then by the triangle inequality, $\vec{n_r}$ must be
+a multiple of $\vec{n_s}$. But we know that in a mixed state, each pair of the
+ensemble must be linearly independent. Thus, there can be at most one $p_r > 0$,
+and since $\sum_j{p_j} = 1 = p_r$, this must be a pure state.
+
+\item For pure states, $\rho = \ket{\psi_r} \bra{\psi_r} = \frac{1}{2} \left( I
++ \vec{n_r} \cdot \vec{\sigma} \right)$. Letting
+
+$$
+\vec{n_r} = \left( \cos \phi_r \sin \theta_r, \sin \phi_r \sin \theta_r, \cos
+\theta_r \right)
+$$
+
+and
+repeating in reverse the steps of the above setup will lead back to
+$\ket{\psi_r} = \cos \theta_r \ket{0} + e^{i \phi} \sin \theta_r \ket{1}$. Thus,
+the Bloch vector for pure states corresponds to the point on the Bloch sphere.
+\end{enumerate}
