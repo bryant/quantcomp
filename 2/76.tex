@@ -1,0 +1,39 @@
+\par \proplabel{General case of the Schmidt decomposition}: Let $\ket{\psi}$ be a pure state of the composite system $AB$, where $A$ and $B$ have dimensions $m$ and $n$, respectively.
+%
+Assume without loss of generality that $m < n$.
+%
+\par Then $\ket{\psi} = \sum_{j = 0}^{m - 1}{\sum_{k = 0}^{n - 1}{w_{jk} \ket{j_A}
+\ket{k_B}}}$ and the coefficients $w_{jk}$ can be organized into a $m \times n$ rectangular matrix $W$:
+%
+\begin{align}
+\ket{\psi} &=
+\underbrace{\begin{pmatrix} \ket{0_A} & \ket{1_A} & \cdots \end{pmatrix}}_{1 \times m}
+\underbrace{\begin{pmatrix} w_{0, 0} & \cdots \\ \vdots & \ddots \end{pmatrix}}_{m \times n}
+\underbrace{\begin{pmatrix} \ket{0_B} \\ \ket{1_B} & \vdots \end{pmatrix}}_{n \times 1} \\
+&= A W B
+\end{align}
+%
+By the singular value decomposition theorem, $W = U \Sigma V^*$ where $U, V$ are $m \times m$ and $n \times n$ unitary, respectively, and $\Sigma$ is $m \times n$ diagonal:
+%
+\begin{align}
+\ket{\psi} &= A W B \\
+&= A U \Sigma V^* B \\
+&= A' \Sigma B' \\
+&=
+\underbrace{\begin{pmatrix} \ket{0_{A'}} & \ket{1_{A'}} & \cdots \end{pmatrix}}_{1 \times m}
+\underbrace{\begin{pmatrix} \lambda_0 & 0 & \cdots \\ 0 & \ddots & 0 \\ 0 & \cdots & \lambda_{n - 1} \\ 0 & \cdots & 0 \\ \vdots & \ddots & \vdots \end{pmatrix}}_{m \times n}
+\underbrace{\begin{pmatrix} \ket{0_{B'}} \\ \ket{1_{B'}} \\ \vdots \end{pmatrix}}_{n \times 1} \\
+&=
+\underbrace{\begin{pmatrix} \ket{0_{A'}} & \ket{1_{A'}} & \cdots & \ket{\left( n - 1 \right)_{A'}} \end{pmatrix}}_{1 \times n}
+\underbrace{\begin{pmatrix} \lambda_0 & 0 & \cdots \\ 0 & \ddots & 0 \\ 0 & \cdots & \lambda_{n - 1} \end{pmatrix}}_{n \times n}
+\underbrace{\begin{pmatrix} \ket{0_{B'}} \\ \ket{1_{B'}} \\ \vdots \end{pmatrix}}_{n \times 1} \\
+&= \sum_{k = 0}^{n - 1}{\lambda_k \ket{k_{A'}} \ket{k_{B'}}}
+\end{align}
+%
+where $A'$ (and similarly, $B'$) is necessarily unitary and orthonormal:
+%
+\begin{align}
+\left( A' \right)^* A' &= U^* A^* A U \\
+&= U^* U \\
+&= I
+\end{align}
