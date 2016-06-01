@@ -1,42 +1,39 @@
+\begingroup
+\newcommand{\tr}[1]{\mathrm{tr} \left[ #1 \right]}
+%
 \par In an orthnormal basis $\{\ket{i}\}$,
-
+%
 \begin{align}
-\mathrm{tr} \left( \ket{\alpha} \bra{\beta} \right) &= \mathrm{tr} \left[ \left(
-\sum_i{a_i \ket{i}} \right) \left( \sum_j{b_j^* \bra{j}} \right) \right] \\
-&= \mathrm{tr} \left( \sum_{i, j}{a_i b_j^* \ket{i} \bra{j}} \right) \\
-&= \sum_{i, j}{a_i b_j^* \mathrm{tr} \left( \ket{i} \bra{j} \right)} \\
+\tr{\ket{\alpha} \bra{\beta}}
+&= \tr{\left( \sum_i{a_i \ket{i}} \right) \left( \sum_j{b_j^* \bra{j}} \right)} \\
+&= \tr{\sum_{i, j}{a_i b_j^* \ket{i} \bra{j}}} \\
+&= \sum_{i, j}{a_i b_j^* \tr{\ket{i} \bra{j}}} \\
 &= \sum_{i, j}{a_i b_j^* \delta_{ij}} = \braket{\beta|\alpha}
 \end{align}
-
-\par Now let $\rho = \sum_i{p_i \ket{\psi_i} \bra{\psi_i}}$ be a density
-operator where $\{\ket{\psi_i}\}$ are all normal but may not necessarily be
-orthogonal to each other. Then, $\rho^2 = \sum_{i, j}{p_i p_j
-\braket{\psi_i|\psi_j} \ket{\psi_i} \bra{\psi_j}}$ and:
-
+%
+\par Now let $\rho = \sum_i{p_i \ket{\psi_i} \bra{\psi_i}}$ be a density operator where $\{\ket{\psi_i}\}$ are all normal but may not necessarily be orthogonal to each other.
+%
+Then, $\rho^2 = \sum_{i, j}{p_i p_j \braket{\psi_i|\psi_j} \ket{\psi_i} \bra{\psi_j}}$ and:
+%
 \begin{align}
-\mathrm{tr} \left( \rho^2 \right) &= \sum_{i, j}{p_i p_j \braket{\psi_i|\psi_j}
-\mathrm{tr} \left( \ket{\psi_i} \bra{\psi_j} \right)} \\
-&= \sum_{i \ne j}{p_i p_j \braket{\psi_i|\psi_j} \mathrm{tr} \left( \ket{\psi_i}
-\bra{\psi_j} \right)} + \sum_k{p_k^2 \mathrm{tr} \left( \ket{\psi_k}
-\bra{\psi_k} \right)} \\
-&= \sum_{i \ne j}{p_i p_j \abs{\braket{\psi_j|\psi_i}}}^2 + \sum_k{p_k^2
-\braket{\psi_k|\psi_k}} \\
+\tr{\rho^2}
+&= \sum_{i, j}{p_i p_j \braket{\psi_i|\psi_j} \tr{\ket{\psi_i} \bra{\psi_j}}} \\
+&= \sum_{i \ne j}{p_i p_j \braket{\psi_i|\psi_j} \tr{\ket{\psi_i} \bra{\psi_j}}} + \sum_k{p_k^2 \tr{\ket{\psi_k} \bra{\psi_k}}} \\
+&= \sum_{i \ne j}{p_i p_j \abs{\braket{\psi_j|\psi_i}}}^2 + \sum_k{p_k^2 \braket{\psi_k|\psi_k}} \\
 &\le \sum_{i \ne j}{p_i p_j} + \sum_k{p_k^2} \\
 &= \left( \sum_i{p_i} \right)^2 = 1
 \end{align}
-
-\par In a pure state, $p_r = 1$ for some fixed $r$ and necessarily, all other
-$p_i = 0$ (thus, $p_i p_r = \delta_{ir}$). Then:
-
+%
+\par In a pure state, $p_r = 1$ for some fixed $r$ and necessarily, all other $p_i = 0$ (thus, $p_i p_r = \delta_{ir}$). Then:
+%
 \begin{align}
-\mathrm{tr} \left( \rho^2 \right) &= \sum_{i \ne j}{p_i p_j
-\abs{\braket{\psi_j|\psi_i}}}^2 + \sum_k{p_k^2 \braket{\psi_k|\psi_k}} \\
+\tr{\rho^2} &= \sum_{i \ne j}{p_i p_j \abs{\braket{\psi_j|\psi_i}}}^2 + \sum_k{p_k^2 \braket{\psi_k|\psi_k}} \\
 &= \sum_k{p_k^2 \braket{\psi_k|\psi_k}} \\
 &= p_r^2 \braket{\psi_r|\psi_r} = 1^2 \cdot 1 = 1
 \end{align}
-
-\par Conversely, suppose that $\mathrm{tr} \left( \rho^2 \right) = 1$. Then,
-
+%
+\par Conversely, suppose that $\tr{\rho^2} = 1$. Then,
+%
 \begin{align}
 \sum_{i \ne j}{p_i p_j \abs{\braket{\psi_j|\psi_i}}}^2 + \sum_k{p_k^2
 \braket{\psi_k|\psi_k}} &= 1 \\
@@ -47,16 +44,20 @@ $p_i = 0$ (thus, $p_i p_r = \delta_{ir}$). Then:
 p_j} \\
 p_i p_j \abs{\braket{\psi_j|\psi_i}}^2 &= p_i p_j, \quad i \ne j
 \end{align}
-
+%
 Suppose that there exists a pair $r \ne s$ such that $p_r p_s > 0$. Then:
-
+%
 $$
 p_r p_s \abs{\braket{\psi_s|\psi_r}}^2 = p_r p_s \Rightarrow
 \abs{\braket{\psi_s|\psi_r}}^2 = 1 \Rightarrow \ket{\psi_r} = \ket{\psi_s}
 \Rightarrow r = s
 $$
-
-leading to a contradiction. So the product of probabilities for every pair of
-distinct states must be zero, which means that there can be at most one non-zero
-$p_r$.  They cannot all be zero either, because $\sum_k{p_k} = 1$. Thus,
-$\sum_k{p_k} = p_r = 1$.
+%
+leading to a contradiction.
+%
+So the product of probabilities for every pair of distinct states must be zero, which means that there can be at most one non-zero $p_r$.
+%
+They cannot all be zero either, because $\sum_k{p_k} = 1$.
+%
+Thus, $\sum_k{p_k} = p_r = 1$.
+\endgroup
