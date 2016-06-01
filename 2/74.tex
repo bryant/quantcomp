@@ -1,0 +1,18 @@
+\begingroup
+\newcommand{\trB}[1]{\mathrm{tr}_B \left( #1 \right)}
+\newcommand{\ketbra}[1]{\ket{#1} \bra{#1}}
+
+\par Suppose the composite system $AB$ is in the states $\ket{a} \ket{b}$, where $\ket{a}$ and $\ket{b}$ are pure states of $A$ and $B$, respectively.
+%
+Then, the reduced density operator for $A$ is:
+%
+\begin{align}
+\rho_A &= \trB{\rho_{AB}} \\
+&= \trB{\ketbra{a} \otimes \ketbra{b}} \\
+&= \ketbra{a} \trB{\ketbra{b}} \\
+&= \ketbra{a} \braket{b|b} \\
+&= \ketbra{a}
+\end{align}
+%
+\par Similarly, $\rho_B$ is a pure state as well.
+\endgroup
