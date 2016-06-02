@@ -1,0 +1,24 @@
+\begingroup
+\newcommand{\trA}[1]{\mathrm{tr}_A \left( #1 \right)}
+\newcommand{\trB}[1]{\mathrm{tr}_B \left( #1 \right)}
+\newcommand{\kb}[2]{\ket{#1} \bra{#2}}
+%
+\par \proplabel{Equivalency of product states and Schmidt number 1}:
+%
+Suppose $\ket{\psi} = \ket{\psi_A} \ket{\psi_B}$.
+%
+Then, via Gram-Schmidt, an orthonormal basis can be chosen  to contain $\ket{\psi_A}$ and $\ket{\psi_B}$ for spaces $A$ and $B$, respectively.
+%
+Under this basis, $\ket{\psi}$ will have a Schmidt number of 1.
+%
+\par On the other hand, if $\ket{\psi}$ has a Schmidt number of 1, then it is trivially a product state.
+%
+\par \proplabel{Equivalency of product states and pure state reduced operators}:
+%
+\begin{align*}
+\trB{\kb{\psi}{\psi}} = \trB{\kb{\psi_A}{\psi_A} \otimes \kb{\psi_B}{\psi_B}} = \kb{\psi_A}{\psi_A} \braket{\psi_B|\psi_B} = \kb{\psi_A}{\psi_A} \\
+\trA{\kb{\psi}{\psi}} = \trA{\kb{\psi_A}{\psi_A} \otimes \kb{\psi_B}{\psi_B}} = \braket{\psi_A|\psi_A} \kb{\psi_B}{\psi_B} = \kb{\psi_B}{\psi_B}
+\end{align*}
+%
+So $\ket{\psi}$ being a two-system product state is equivalent to both its reduced operators being pure states.
+\endgroup
