@@ -28,30 +28,36 @@ class ProblemList(Enumerate):
     def latex_name(self):
         return "enumerate"
 
-def build_all(subdir, preamble="preamble.tex"):
+def build_chap(subdir, preamble="preamble.tex"):
+    exos = ProblemList()
+    probs = ProblemList()
+
+    files = sorted(os.listdir(subdir))
+    for subfile in files:
+        path = os.path.join(subdir, subfile)
+
+        if subfile.startswith("p"):
+            pnum = int(re.match(r"p(\d+)\.tex", subfile).group(1))
+            probs.set_counter(pnum - 1).add_item(read_one(path))
+        elif re.match(r"^\d+\.tex", subfile):
+            pnum = int(re.match(r"(\d+)\.tex", subfile).group(1))
+            exos.set_counter(pnum - 1).add_item(read_one(path))
+
+    return exos, probs
+
+def build_all(subdirs, preamble="preamble.tex"):
     doc = d = make_doc(preamble)
-    chap = re.search(r"\d+", subdir).group(0)
-    with d.create(Section(chap, numbering=False)):
-        exos = ProblemList()
-        probs = ProblemList()
-
-        files = sorted(os.listdir(subdir))
-        for subfile in files:
-            path = os.path.join(subdir, subfile)
-
-            if subfile.startswith("p"):
-                pnum = int(re.match(r"p(\d+)\.tex", subfile).group(1))
-                probs.set_counter(pnum - 1).add_item(read_one(path))
-            elif re.match(r"^\d+\.tex", subfile):
-                pnum = int(re.match(r"(\d+)\.tex", subfile).group(1))
-                exos.set_counter(pnum - 1).add_item(read_one(path))
-
-        d.append(Subsection("Exercises", numbering=False, data=exos))
-        d.append(Subsection("Problems", numbering=False, data=probs))
+    for subdir in subdirs:
+        chap = re.search(r"\d+", subdir).group(0)
+        with d.create(Section(chap, numbering=False)):
+            exos, probs = build_chap(chap, preamble)
+            d.append(Subsection("Exercises", numbering=False, data=exos))
+            if len(probs) > 0:
+                d.append(Subsection("Problems", numbering=False, data=probs))
     return doc
 
 args = ArgumentParser()
-args.add_argument("texfile_or_chapdir",
+args.add_argument("texfile_or_chapdir", nargs="+",
                    help="Either a path to a solution TeX file or a subdirectory\
                          containing the all solutions of a chapter.")
 args.add_argument("-c", dest="compiler", default="xelatex",
@@ -63,6 +69,9 @@ args.add_argument("-a", dest="all", default=False, action="store_true",
 
 if __name__ == "__main__":
     opts = args.parse_args()
-    gen = build_all if opts.all else build_one
-    gen(opts.texfile_or_chapdir).generate_pdf(compiler=opts.compiler,
-                                              silent=opts.quiet)
+    if opts.all:
+        build_all(opts.texfile_or_chapdir).generate_pdf(compiler=opts.compiler,
+                                                        silent=opts.quiet)
+    else:
+        build_one(opts.texfile_or_chapdir[0]) \
+                .generate_pdf(compiler=opts.compiler, silent=opts.quiet)
