@@ -1,0 +1,32 @@
+\par \proplabel{Schmidt decompositions}:
+%
+$\ket{\psi_0} = \frac{\ket{00} + \ket{11}}{\sqrt{2}}$ is already its own decomposition.
+%
+\par $\ket{\psi_1} = \frac{\ket{00} + \ket{01} + \ket{10} + \ket{11}}{2}$ has a Hermitian coefficient matrix and so its SVD will coincide with its spectral decomposition:
+%
+$$
+\frac{1}{2} \begin{pmatrix} 1 & 1 \\ 1 & 1 \end{pmatrix} =
+\left[ \frac{1}{\sqrt{2}} \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix} \right]
+\begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}
+\left[ \frac{1}{\sqrt{2}} \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix} \right]
+$$
+%
+So $\ket{\psi_1} = \left( \frac{1}{\sqrt{2}} \left( \ket{0} + \ket{1} \right) \right)^{\otimes 2}$.
+%
+\par $\ket{\psi_2} = \frac{\ket{00} + \ket{01} + \ket{10}}{\sqrt{3}}$ again has a Hermitian coefficient matrix:
+%
+$$
+\frac{1}{\sqrt{3}} \begin{pmatrix} 1 & 1 \\ 1 & 0 \end{pmatrix} =
+\left[ \frac{1}{\sqrt{1 + \Phi^2}} \begin{pmatrix} \Phi & -1 \\ 1 & \Phi \end{pmatrix} \right]
+\left[ \frac{1}{\sqrt{3}} \begin{pmatrix} \Phi & 0 \\ 0 & 1 - \Phi \end{pmatrix} \right]
+\left[ \frac{1}{\sqrt{1 + \Phi^2}} \begin{pmatrix} \Phi & 1 \\ -1 & \Phi \end{pmatrix} \right]
+$$
+%
+where $\Phi$ is the golden ratio $\frac{1 + \sqrt{5}}{2}$.
+%
+Letting $N = \sqrt{1 + \Phi^2}$,
+$$
+\ket{\psi_2}
+= \frac{\Phi}{\sqrt{3}} \left( \frac{\Phi \ket{0} + \ket{1}}{N} \right)^{\otimes 2}
++ \frac{1 - \Phi}{\sqrt{3}} \left( \frac{\Phi \ket{1} - \ket{0}}{N} \right)^{\otimes 2}
+$$
