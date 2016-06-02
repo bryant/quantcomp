@@ -1,0 +1,43 @@
+\begingroup
+\newcommand{\trA}[1]{\mathrm{tr}_0 \left( #1 \right)}
+\newcommand{\kb}[2]{\ket{#1} \bra{#2}}
+%
+\par \proplabel{Reduced density operators for Bell states}.
+%
+For $2^{-1/2} \left( \ket{00} + \ket{11} \right)$:
+%
+\begin{align}
+\rho_0 &= \frac{\trA{\kb{00}{00} + \kb{00}{11} + \kb{11}{00} + \kb{11}{11}}}{2} \\
+&= \frac{I}{2} \\
+\rho_1 &= \frac{\kb{0}{0} + \kb{1}{1}}{2} \\
+&= \frac{I}{2}
+\end{align}
+%
+\par For $2^{-1/2} \left( \ket{00} - \ket{11} \right)$:
+%
+\begin{align}
+\rho_0 &= \frac{\trA{\kb{00}{00} - \kb{00}{11} - \kb{11}{00} + \kb{11}{11}}}{2} \\
+&= \frac{\kb{0}{0} + \kb{1}{1}}{2} \\
+&= \frac{I}{2} \\
+\rho_1 &= \rho_0
+
+\end{align}
+%
+\par For $2^{-1/2} \left( \ket{01} + \ket{10} \right)$:
+%
+\begin{align}
+\rho_0 &= \frac{\trA{\kb{01}{01} + \kb{01}{10} + \kb{10}{01} + \kb{10}{10}}}{2} \\
+&= \frac{\kb{0}{0} + \kb{1}{1}}{2} \\
+&= \frac{I}{2} \\
+\rho_1 &= \rho_0
+\end{align}
+%
+\par For $2^{-1/2} \left( \ket{01} - \ket{10} \right)$:
+%
+\begin{align}
+\rho_0 &= \frac{\trA{\kb{01}{01} - \kb{01}{10} - \kb{10}{01} + \kb{10}{10}}}{2} \\
+&= \frac{\kb{0}{0} + \kb{1}{1}}{2} \\
+&= \frac{I}{2} \\
+\rho_1 &= \rho_0
+\end{align}
+\endgroup
