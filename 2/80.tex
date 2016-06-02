@@ -1,0 +1,18 @@
+\par Suppose that $\ket{\psi} = \sum_i{\lambda_i \ket{i_A} \ket{i_B}}$ and $\ket{\phi} = \sum_i{\lambda_i \ket{i_A'} \ket{i_B'}}$.
+%
+Let $U = A_A \left( A_{A'} \right)^*$, where $A_A$ and $A_{A'}$ are square matrices formed by a column-wise arrangement of ${i_A}$ and ${i_A'}$, respectively.
+%
+Then $A_A = U A_{A'}$.
+%
+Furthermore, $U U^* = A_A \left( A_{A'} \right)^* A_{A'} A_A^* = A_A A_A^* = I$, so $U$ is unitary.
+%
+\par Similarly, there exists a unitary matrix $V$ such that $B_B = V B_{B'}$.
+%
+Thus,
+%
+\begin{align}
+\ket{\psi} &= \sum_i{\lambda_i \ket{i_A} \ket{i_B}} \\
+&= \sum_i{\lambda_i (U \ket{i_A'}) \otimes (V \ket{i_B'})} \\
+&= \left( U \otimes V \right) \sum_i{\lambda_i \ket{i_A'} \ket{i_B'}} \\
+&= \left( U \otimes V \right) \ket{\phi}
+\end{align}
