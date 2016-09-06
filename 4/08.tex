@@ -1,6 +1,9 @@
 \begingroup
 \newcommand{\tr}[1]{\mathrm{tr} \left[ #1 \right]}
 \newcommand{\re}[1]{\mathrm{Re} \left( #1 \right)}
+\newcommand{\expo}[1]{\exp \left( #1 \right)}
+\newcommand{\coso}[1]{\cos \left( #1 \right)}
+\newcommand{\sino}[1]{\sin \left( #1 \right)}
 %
 \begin{enumerate}
 \item \proplabel{Proposition}: $I, X, Y, Z$ form a basis in the space of matrices $\complex^{2 \times 2}$.
@@ -33,7 +36,7 @@ $$
 \tr{W} = \tr{\Lambda} = e^{ik} + e^{-ik} = 2 \cos k \in \reals
 $$
 %
-\par Using the above proposition, $W = w I + n \cdot \sigma$ (where $n \in \complex^3$, $\sigma$ is the usual vector of Pauli matrices, and $w = \left[ \exp \left( ik \right) + \exp \left( -ik \right) \right] / 2 = \cos k$).
+\par Using the above proposition, $W = w I + n \cdot \sigma$ (where $n \in \complex^3$, $\sigma$ is the usual vector of Pauli matrices, and $w = \left( \expo{ik} + \expo{-ik} \right) / 2 = \cos k$).
 %
 Since $W$ is also unitary:
 %
@@ -73,14 +76,14 @@ Thus,
 %
 \begin{align}
 U &= e^{ic} W \\
-&= e^{ic} \left( \left( \cos k \right) I + n \cdot \sigma \right) \\
+&= e^{ic} \left( \coso{k} I + n \cdot \sigma \right) \\
 &= \frac{e^{ic} e^{i \theta}}{i} \left( i r \cdot \sigma \right) \\
 &= e^{i \phi} R_r \left( \frac{\pi}{2} \right), \phi = c + \theta - \frac{\pi}{2}
 \end{align}
 %
 \par On the other hand, if $\cos k \ne 0$, then $\re{n} = 0$ and
 $$
-n = e^{i \theta} r = \left( \cos \theta + i \sin \theta \right) r = i \left( \sin \theta \right) r
+n = e^{i \theta} r = \left( \cos \theta + i \sin \theta \right) r = i \sino{\theta} r
 $$
 %
 Since $\cos^2 k + \braket{n|n} = \cos^2 k + \sin^2 \theta = 1$, it must be that $\theta = k$.
@@ -88,23 +91,23 @@ Since $\cos^2 k + \braket{n|n} = \cos^2 k + \sin^2 \theta = 1$, it must be that 
 Expanding $U$ once more:
 %
 \begin{align}
-U &= e^{ic} \left( \left( \cos k \right) I + i \left( \sin k \right) \cdot r \right) \\
+U &= e^{ic} \left( \coso{k} I + i \sino{k} r \right) \\
 &= e^{ic} R_r \left( k \right)
 \end{align}
 %
 \item \begin{align}
 H &= \frac{1}{\sqrt{2}} \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix} \\
 &= \frac{X + Z}{\sqrt{2}} \\
-&= \frac1i \left( \cos \frac{\pi}{2} + i \left( \sin \frac{\pi}{2} \right)  n \cdot \sigma \right), n = \frac{1}{\sqrt{2}} \left( 1, 1, 0 \right) \\
-&= \exp \left( -i \frac{\pi}{2} \right) R_n \left( \frac{\pi}{2} \right)
+&= \frac1i \left( \coso{\frac{\pi}{2}} I + i \sino{\frac{\pi}{2}} n \cdot \sigma \right), n = \frac{1}{\sqrt{2}} \left( 1, 1, 0 \right) \\
+&= \expo{-i \frac{\pi}{2}} R_n \left( \frac{\pi}{2} \right)
 \end{align}
 %
 \item We want to find a $k$ such that $e^{ik} \left( e^{ic} + e^{-ic} \right) = 1 + i$, for some $c \in \reals$:
 %
 \begin{align}
 S &= \begin{pmatrix} 1 & 0 \\ 0 & i \end{pmatrix} \\
-&= \exp \left( i \frac{\pi}{4} \right) \begin{pmatrix} e^{-i \frac{\pi}{4}} & 0 \\ 0 & e^{i \frac{\pi}{4}} \end{pmatrix} \\
-&= \exp \left( i \frac{\pi}{4} \right) \left[ \left( \cos \frac{\pi}{4} \right) I - \left(i \sin \frac{\pi}{4} \right) Z \right] \\
+&= \expo{i \frac{\pi}{4}} \begin{pmatrix} \expo{-i \frac{\pi}{4}} & 0 \\ 0 & \expo{i \frac{\pi}{4}} \end{pmatrix} \\
+&= \expo{i \frac{\pi}{4}} \left( \coso{\frac{\pi}{4}} I - i \sino{\frac{\pi}{4}} Z \right) \\
 &= \exp \left( i \frac{\pi}{4} \right) R_n \left( \frac{\pi}{4} \right), n = \left(0, 0, 1 \right)
 \end{align}
 \end{enumerate}
