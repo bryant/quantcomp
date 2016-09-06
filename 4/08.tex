@@ -1,0 +1,111 @@
+\begingroup
+\newcommand{\tr}[1]{\mathrm{tr} \left[ #1 \right]}
+\newcommand{\re}[1]{\mathrm{Re} \left( #1 \right)}
+%
+\begin{enumerate}
+\item \proplabel{Proposition}: $I, X, Y, Z$ form a basis in the space of matrices $\complex^{2 \times 2}$.
+%
+\par \proof: In such a space, $I, X, Y, Z$ are linearly independent:
+%
+\begin{align}
+j I + k X + m Y + n Z &= 0 \\
+\begin{pmatrix} j + n & k - i m \\ k + i m & j - n \end{pmatrix} &= 0 \\
+j + n = 0, \enskip j - n = 0 &\Rightarrow j = n = 0 \\
+k - i m = 0, \enskip k + i m = 0 &\Rightarrow k = m = 0
+\end{align}
+%
+and $\begin{pmatrix} a & b \\ c & d \end{pmatrix} = \begin{pmatrix} j + n & k - i m \\ k + i m & j - n \end{pmatrix} \Rightarrow j = \frac{a+d}{2}, \enskip n = \frac{a-d}{2}, \enskip k = \frac{b+c}{2}, \enskip m = i \frac{b-c}{2}$, so that the coefficients are unique.
+%
+\par Next, let $U \in \complex^{2 \times 2}$ be unitary.
+%
+By Exercise 2.18 and the spectral theorem,
+%
+\begin{align}
+U &= V \begin{pmatrix} e^{ia} & 0 \\ 0 & e^{ib} \end{pmatrix} V^* \\
+&= e^{ic} V \begin{pmatrix} e^{ik} & 0 \\ 0 & e^{-i k} \end{pmatrix} V^* \\
+&= e^{ic} V \Lambda V^* \\
+&= e^{ic} W
+\end{align}
+%
+where $c = -i\frac{a+b}{2}$ and $k = \frac{a-b}{2}$ so that
+%
+$$
+\tr{W} = \tr{\Lambda} = e^{ik} + e^{-ik} = 2 \cos k \in \reals
+$$
+%
+\par Using the above proposition, $W = w I + n \cdot \sigma$ (where $n \in \complex^3$, $\sigma$ is the usual vector of Pauli matrices, and $w = \left[ \exp \left( ik \right) + \exp \left( -ik \right) \right] / 2 = \cos k$).
+%
+Since $W$ is also unitary:
+%
+\begin{align}
+I &= W W^* \\
+&= \left( w I + n \cdot \sigma \right) \left( w I + n^* \cdot \sigma \right) \\
+&= w^2 I + \left( w \left( n + n^* \right) \right) \cdot \sigma + \left( n \cdot \sigma \right) \left( n^* \cdot \sigma \right) \\
+&= w^2 I + \left( 2 w \re{n} \right) \cdot \sigma + \braket{n|n} I +\left( n_x n_y^* - n_y n_x^* \right) XY \notag \\
+&\phantom{{}= w^2 I} + \left( n_x n_z^* - n_z n_x^* \right) XZ + \left( n_y n_z^* - n_z n_y^* \right) YZ
+\end{align}
+%
+which yields the constraints
+%
+\begin{align}
+\cos^2 k + \braket{n|n} &= 1 \\
+\re{n} \cos k &= 0 \\
+n_x n_y^* &= n_y n_x^* \\
+n_y n_z^* &= n_z n_y^* \\
+n_x n_z^* &= n_z n_x^*
+\end{align}
+%
+Letting $n = \left( r_x e^{ix}, r_y e^{iy}, r_z e^{iz} \right)$, the last three constraints become:
+%
+\begin{align}
+e^{i \left( x - y \right)} = e^{i \left( y - x \right)} &\Rightarrow x = y \\
+e^{i \left( y - z \right)} = e^{i \left( z - y \right)} &\Rightarrow y = z \\
+e^{i \left( x - z \right)} = e^{i \left( z - x \right)} &\Rightarrow x = z
+\end{align}
+%
+which means that $n = e^{i \theta} r$, where $r \in \reals^3$ and $\theta = x = y = z$.
+%
+\par Suppose that $\cos k = 0$.
+%
+Then $\braket{n|n} = \lVert r \rVert ^2 = 1$.
+%
+Thus,
+%
+\begin{align}
+U &= e^{ic} W \\
+&= e^{ic} \left( \left( \cos k \right) I + n \cdot \sigma \right) \\
+&= \frac{e^{ic} e^{i \theta}}{i} \left( i r \cdot \sigma \right) \\
+&= e^{i \phi} R_r \left( \frac{\pi}{2} \right), \phi = c + \theta - \frac{\pi}{2}
+\end{align}
+%
+\par On the other hand, if $\cos k \ne 0$, then $\re{n} = 0$ and
+$$
+n = e^{i \theta} r = \left( \cos \theta + i \sin \theta \right) r = i \left( \sin \theta \right) r
+$$
+%
+Since $\cos^2 k + \braket{n|n} = \cos^2 k + \sin^2 \theta = 1$, it must be that $\theta = k$.
+%
+Expanding $U$ once more:
+%
+\begin{align}
+U &= e^{ic} \left( \left( \cos k \right) I + i \left( \sin k \right) \cdot r \right) \\
+&= e^{ic} R_r \left( k \right)
+\end{align}
+%
+\item \begin{align}
+H &= \frac{1}{\sqrt{2}} \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix} \\
+&= \frac{X + Z}{\sqrt{2}} \\
+&= \frac1i \left( \cos \frac{\pi}{2} + i \left( \sin \frac{\pi}{2} \right)  n \cdot \sigma \right), n = \frac{1}{\sqrt{2}} \left( 1, 1, 0 \right) \\
+&= \exp \left( -i \frac{\pi}{2} \right) R_n \left( \frac{\pi}{2} \right)
+\end{align}
+%
+\item We want to find a $k$ such that $e^{ik} \left( e^{ic} + e^{-ic} \right) = 1 + i$, for some $c \in \reals$:
+%
+\begin{align}
+S &= \begin{pmatrix} 1 & 0 \\ 0 & i \end{pmatrix} \\
+&= \exp \left( i \frac{\pi}{4} \right) \begin{pmatrix} e^{-i \frac{\pi}{4}} & 0 \\ 0 & e^{i \frac{\pi}{4}} \end{pmatrix} \\
+&= \exp \left( i \frac{\pi}{4} \right) \left[ \left( \cos \frac{\pi}{4} \right) I - \left(i \sin \frac{\pi}{4} \right) Z \right] \\
+&= \exp \left( i \frac{\pi}{4} \right) R_n \left( \frac{\pi}{4} \right), n = \left(0, 0, 1 \right)
+\end{align}
+\end{enumerate}
+\endgroup
