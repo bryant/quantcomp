@@ -1,31 +1,10 @@
 \begingroup
-\newcommand{\diag}[1]{\mathrm{diag} \left[ #1 \right]}
-\newcommand{\diags}[2]{\mathrm{diag} \left[ #1, #2 \right]}
-\newcommand{\expo}[1]{\exp \left( #1 \right)}
-\newcommand{\coso}[1]{\cos \left( #1 \right)}
-\newcommand{\sino}[1]{\sin \left( #1 \right)}
-
-\par \begin{quote} Let $x$ be a real number and $A$ a matrix such that $A^2 = I$.
-%
-Show that $\expo{i A x} = I \cos x + i A \sin x$. \end{quote}
-%
-\par In order for the operator function to make sense, $A$ must be normal operator (cf. Section 2.1.8).
-%
-However, being a self-inverse doesn't imply being normal.
-%
-For instance, $\begin{pmatrix} -1 & 1 \\ 0 & 1 \end{pmatrix}^2 = 1$ but isn't normal.
-%
-\par Let's assume that $A$ is normal as well.
-%
-By the Cayley-Hamilton theorem, $A$ has eigenvalues $\pm 1$ and so $A = U \diags{1}{-1} U^*$.
-%
-Then,
 %
 \begin{align}
-\expo{i A x} &= U \diags{\expo{i x}}{\expo{-i x}} U^* \\
-&= U \diags{\coso{x}}{\cos{-x}} U^* + U \diags{i \sino{x}}{i \sino{-x}} U^* \\
-&= U \diag{\coso{x}} U^* + i U \diags{\sino{x}}{-\sino{x}} U^* \\
-&= \coso{x} U I U^* + i \sino{x} U \diags{1}{-1} U^* \\
-&= \coso{x} I + i \sino{x} A
+e^{i A x} &= \sum_{n=0}^{\infty}{\frac{\left( iAx \right)^n}{n!}} \\
+&= \sum_{n=0}^{\infty}{\left[ \frac{\left( iAx \right)^{2n}}{\left( 2n \right)!} + \frac{\left( iAx \right)^{2n+1}}{\left( 2n + 1 \right)!} \right]} \\
+&= \sum_{n=0}^{\infty}{\left[ \left( -1 \right)^n \frac{I^n x^{2n}}{\left( 2n \right)!} + i \left( - 1 \right)^n A \frac{I^n x^{2n+1}}{\left( 2n + 1 \right)!} \right]} \\
+&= I \sum_{n=0}^{\infty}{\left( -1 \right)^n \frac{x^{2n}}{\left( 2n \right)!}} + i A \sum_{n=0}^{\infty}{\left( - 1 \right)^n \frac{x^{2n+1}}{\left( 2n + 1 \right)!}} \\
+&= I \cos x + i A \sin x
 \end{align}
 \endgroup
