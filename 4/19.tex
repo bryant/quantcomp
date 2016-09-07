@@ -1,0 +1,19 @@
+\begingroup
+%
+\par Let $\ket{\psi} = a \ket{00} + b \ket{01} + c \ket{10} + d \ket{11}$ and
+$$
+I \otimes X^c = \begin{pmatrix} 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 0 & 1 \\ 0 & 0 & 1 & 0 \end{pmatrix}
+$$
+%
+Then $\ket{\phi} = \left( I \otimes X^c \right) \ket{\psi} = a \ket{00} + b \ket{01} + d \ket{10} + c \ket{11}$ and its density matrix is:
+%
+\begin{align}
+\ket{\phi} \bra{\phi} &= \begin{pmatrix} aa^* & ab^* & ad^* & ac^* \\ ba^* & bb^* & bd^* & bc^* \\ ca^* & cb^* & cd^* & cc^* \\ da^* & db^* & dd^* & dc^* \end{pmatrix}
+\end{align}
+%
+which is simply a permutation of
+\begin{align}
+\ket{\psi} \bra{\psi} &= \begin{pmatrix} aa^* & ab^* & ac^* & ad^* \\ ba^* & bb^* & bc^* & bd^* \\ ca^* & cb^* & cc^* & cd^* \\ da^* & db^* & dc^* & dd^* \end{pmatrix}
+\end{align}
+%
+\endgroup
