@@ -1,0 +1,34 @@
+\begingroup
+\newcommand{\expo}[1]{\exp \left( #1 \right)}
+%
+\par Let $Q : \complex^N \to \complex^N$ be the quantum Fourier transform, where $Q_{jk} = z^{jk} / \sqrt{N}$ and $z = \expo{2 \pi i / N}$.
+%
+\begin{align*}
+\left( Q^* Q \right)_{jk} &= \sum_{m=0}^{N-1}{Q^*_{jm} Q_{mk}} \\
+&= \frac1N \sum_{m=0}^{N-1}{\left( z^{jm} \right)^* z^{mk}} \\
+&= \frac1N \sum_{m=0}^{N-1}{\left[ \left( z^* \right)^j z^k \right]^m} \\
+
+&= \frac1N \begin{cases}
+N & j = k \\
+\sum_{m=0}^{N-1}{\left( z^{k-j} \right)^m} & j < k \\
+\sum_{m=0}^{N-1}{\left[ \left( z^* \right)^{j-k} \right]^m} & j > k \\
+\end{cases} && \text{since $z z^* = 1$} \\
+
+&= \frac1N \begin{cases}
+N & j = k \\
+\frac{\left( z^{k-j} \right)^N - 1}{z-1} & j < k \\
+\frac{\left[ \left( z^* \right)^{j-k} \right]^N - 1}{z-1} & j > k \\
+\end{cases} && \text{sum of geometric series} \\
+
+&= \begin{cases}
+1 & j = k \\
+\frac{1^{k-j} - 1}{z-1} & j < k \\
+\frac{1^{j-k} - 1}{z-1} & j > k \\
+\end{cases} \\
+
+&= \delta_{jk}
+\end{align*}
+%
+Thus, $Q^* Q = I$ and $Q$ is unitary.
+%
+\endgroup
