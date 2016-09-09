@@ -1,0 +1,9 @@
+\begingroup
+\newcommand{\expo}[1]{\exp \left( #1 \right)}
+%
+\par Letting $\mathrm{bin} \left( k \right)$ denote the binary representation of $k$,
+$$
+\ket{\underbrace{00 \ldots 0}_{\text{$n$ qubits}}} \mapsto \left( \frac{1}{\sqrt{2^n}} \sum_{k=0}^{2^n-1}{\expo{\frac{2 \pi i j k}{N}} \ket{k}} \right) \biggr\rvert_{\substack{j=0}} = \frac{1}{\sqrt{2^n}} \sum_{k=0}^{2^n-1}{\ket{\mathrm{bin} \left( k \right)}}
+$$
+%
+\endgroup
