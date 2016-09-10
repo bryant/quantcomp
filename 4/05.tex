@@ -1,0 +1,14 @@
+\begingroup
+\newcommand{\roto}[2]{R_{#1} \left( #2 \right)}
+%
+\par Let $n \in \reals^3$ with $\lVert n \rVert^2 = 1$ and note that $XY = -YX, XZ = -ZX, YZ = -ZY$.
+%
+\begin{align*}
+\left( n \cdot \sigma \right) ^2 &= \left( \sum_{i \in \left\{ x, y, z \right\}}{n_i \sigma_i} \right)^2 \\
+&= \sum_{i \in \left\{ x, y, z \right\}}{n_i^2 \sigma_i^2} + \sum_{\substack{i, j \in \left\{ x, y, z \right\} \\ i \ne j}}{n_i n_j \sigma_i \sigma_j} \\
+&= \sum_{i \in \left\{ x, y, z \right\}}{n_i^2 \sigma_i^2} \\
+&= I \sum_{i \in \left\{ x, y, z \right\}}{n_i^2} && \text{since $X^2 = Y^2 = Z^2 = I$} \\
+&= I
+\end{align*}
+%
+\endgroup
