@@ -1,0 +1,16 @@
+\begingroup
+\newcommand{\roto}[2]{R_{#1} \left( #2 \right)}
+%
+\par Note that $X^2 = Y^2 = Z^2 = I$, $XZ = -ZX$, and $ZXZ = -Z^2 X = -X$.
+%
+\begin{align*}
+\roto{z}{\frac{\pi}{2}} \roto{x}{\frac{\pi}{2}} \roto{z}{\frac{\pi}{2}} &= \frac{1}{\sqrt{2}^3} \left( I - iZ \right) \left( I - iX \right) \left( I - iZ \right) \\
+&= \frac{1}{\sqrt{2}^3} \left( I - iZ \right) \left[ I - i \left( X + Z \right) - XZ \right] \\
+&= \frac{1}{\sqrt{2}^3} \left[ I - i \left( X + Z \right) - XZ - iZ - XZ - I + iZXZ \right] \\
+&= \frac{1}{\sqrt{2}^3} \left[ - i \left( X + Z \right) - iZ - iX \right] \\
+&= -\frac{2i}{\sqrt{2}^3} \left( X + Z \right) \\
+&= -i \frac{X + Z}{\sqrt{2}} \\
+&= -i H
+\end{align*}
+%
+\endgroup
