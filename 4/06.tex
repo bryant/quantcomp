@@ -1,0 +1,100 @@
+\begingroup
+\newcommand{\roto}[2]{R_{#1} \left( #2 \right)}
+\newcommand{\expo}[1]{\exp \left( #1 \right)}
+\newcommand{\coso}[1]{\cos \left( #1 \right)}
+\newcommand{\sino}[1]{\sin \left( #1 \right)}
+%
+\par Some identities ($c_\theta = \cos \theta$, and $s_\theta = \sin \theta$):
+%
+\begin{enumerate}
+\item $YZ = iX$, $XZ = -iY$, $XY = iZ$.
+%
+\item $\roto{i}{-a} = c_{\frac{a}{2}} I - i s_{\left( -\frac{a}{2} \right)} \sigma_i = c_{\frac{a}{2}} I + i s_{\frac{a}{2}} \sigma_i = \roto{i}{a}^* = \roto{i}{a}^{-1}$.
+%
+\item Letting $b = a/2$:
+%
+\begin{enumerate}
+\item \begin{align*}
+\roto{z}{a} Z \roto{z}{a}^* &= \left( c_b I - i s_b Z \right) Z \left( c_b I + i s_b Z \right) \\
+&= c_b^2 Z + s_b^2 Z^3 + i c_b s_b Z^2 - i c_b s_b Z^2 \\
+&= Z
+\end{align*}
+%
+\item \begin{align*}
+\roto{z}{a} X \roto{z}{a}^* &= c_b^2 X + s_b^2 ZXZ + i c_b s_b XZ - i c_b s_b ZX \\
+&= \left( c_b^2 - s_b^2 \right) X + 2 i c_b s_b XZ \\
+&= c_a X + s_a Y
+\end{align*}
+%
+\item \begin{align*}
+\roto{z}{a} Y \roto{z}{a}^* &= c_b^2 Y + s_b^2 ZYZ + i c_b s_b YZ - i c_b s_b ZY \\
+&= \left( c_b^2 - s_b^2 \right) Y + 2 i c_b s_b YZ \\
+&= c_a Y - s_a X
+\end{align*}
+%
+\item \begin{align*}
+\roto{y}{a} Z \roto{y}{a}^* &= \left( c_b I - i s_b Y \right) Z \left( c_b I + i s_b Y \right) \\
+&= c_b^2 Z + s_b^2 YZY + i c_b s_b ZY - i c_b s_b YZ \\
+&= \left( c_b^2 - s_b^2 \right) Z - 2 i c_b s_b YZ \\
+&= c_a Z + s_a X
+\end{align*}
+\end{enumerate}
+\end{enumerate}
+%
+\proplabel{Proposition}: Let $n$ be a unit vector of $\reals^3$, and $0 \le \theta \le 2 \pi$, $0 \le \phi \le \pi$ such that $n = \left( \sin \phi \cos \theta, \sin \phi \sin \theta, \cos \phi \right)$.
+%
+Then,
+%
+$$\roto{n}{\omega} = \roto{\left( \theta, \phi \right)}{\omega} = \roto{z}{\theta} \roto{y}{\phi} \roto{z}{\omega} \roto{y}{-\phi} \roto{z}{-\theta}$$.
+%
+\par \proof:
+%
+\begin{align*}
+\Omega &= \roto{y}{\phi} \roto{z}{\omega} \roto{y}{\phi}^* \\
+&= c_{\frac{\omega}{2}} I - i s_{\frac{\omega}{2}} \roto{y}{\phi} Z \roto{y}{\phi}^* \\
+&= c_{\frac{\omega}{2}} I - i s_{\frac{\omega}{2}} \left[ c_\phi Z + s_\phi X \right]
+\end{align*}
+%
+Expanding again:
+%
+\begin{align*}
+\roto{z}{\theta} \Omega \roto{z}{\theta}^* &= c_{\frac{\omega}{2}} I - i s_{\frac{\omega}{2}} \roto{z}{\theta} \left[ c_\phi Z + s_\phi X \right] \roto{z}{\theta}^* \\
+&= c_{\frac{\omega}{2}} I - i s_{\frac{\omega}{2}} \left[ c_\phi Z + s_\phi \roto{z}{\theta} X \roto{z}{\theta}^* \right] \\
+&= c_{\frac{\omega}{2}} I - i s_{\frac{\omega}{2}} \left[ c_\phi Z + s_\phi \left( c_{\theta} X + s_{\theta} Y \right) \right] \\
+&= c_{\frac{\omega}{2}} I - i s_{\frac{\omega}{2}} \left( n_z Z + n_x X + n_y Y \right) \\
+&= \roto{n}{\omega}
+\end{align*}
+%
+\hfill $\square$
+%
+\par By Exercise 2.72, a qubit state $\ket{\psi}$ represented by the Bloch vector $\lambda$ will have density matrix $\rho = \ket{\psi} \bra{\psi} = \left( I + \lambda \cdot \sigma \right) / 2$.
+%
+\begin{align*}
+\roto{z}{a} \rho \roto{z}{a}^* &= \frac12 \left( I + \roto{z}{a} \left( \lambda \cdot \sigma \right) \roto{z}{a} \right) \\
+&= \frac12 \left[ I + \lambda_x \left( c_a X + s_a Y\right) + \lambda_y \left( c_a Y - s_a X \right) + \lambda_z Z \right] \\
+&= \frac12 \left[ I + \lambda_x \left( c_a - s_ a \right) X + \lambda_y \left( c_a + s_a \right) Y + \lambda_z \right] \\
+&= \frac{I + \lambda' \cdot \sigma}{2}
+\end{align*}
+%
+So the effect of $\roto{z}{a}$ is to z-rotate $\lambda$ by $a$.
+%
+Similarly, $\roto{y}{a}$ will y-rotate $\lambda$ by $a$.
+%
+Letting $R_{z, \theta} = \roto{z}{\theta}$, the action of $\roto{n}{\omega}$ on $\lambda$ will be:
+%
+\begin{align*}
+\rho' &= \roto{\left( \theta, \phi \right)}{\omega} \rho \roto{\left( \theta, \phi \right)}{\omega}^* \\
+&=
+R_{z, \theta}
+\left( R_{y, \phi}
+\left( R_{z, \omega}
+\left( R_{y, -\phi}
+\left( R_{z, -\theta} \rho R_{z, \theta} \right)
+R_{y, \phi} \right)
+R_{z, -\omega} \right)
+R_{y, -\phi} \right)
+R_{z, -\theta}
+\end{align*}
+%
+which is a rotation around $n$ by $\omega$.
+\endgroup
