@@ -5,46 +5,46 @@ Suppose that $U = \begin{pmatrix} a & b \\ c & d \end{pmatrix} \in \complex^{2 \
 %
 Since its column vectors are normal,
 %
-\begin{align}
+\begin{align*}
 U = \begin{pmatrix} e^{i\alpha} \cos j & e^{i\beta} \sin k \\ e^{i\gamma} \sin j & e^{i\delta} \cos k \end{pmatrix}
-\end{align}
+\end{align*}
 %
 Or, factoring out $e^{i\alpha}$ with no loss of generality,
-\begin{align}
+\begin{align*}
 U = e^{i\alpha} \begin{pmatrix} \cos j & e^{i\beta} \sin k \\ e^{i\gamma} \sin j & e^{i\delta} \cos k \end{pmatrix}
-\end{align}
+\end{align*}
 %
 The column vectors are also orthogonal, implying that
 %
-\begin{align}
+\begin{align*}
 \begin{pmatrix} a^* & c^* \end{pmatrix} \begin{pmatrix} b \\ d \end{pmatrix} &= 0 \\
 &= e^{i\beta} \cos j \sin k + e^{i\delta-i\gamma} \sin j \cos k \\
 &= \cos j \sin k + e^{i\delta+i\gamma-i\beta} \sin j \cos k
-\end{align}
+\end{align*}
 %
 and
 %
-\begin{align}
+\begin{align*}
 \begin{pmatrix} b^* & d^* \end{pmatrix} \begin{pmatrix} a \\ c \end{pmatrix} &= 0 \\
 &= e^{-i\beta} \cos j \sin k + e^{i\gamma-i\delta} \sin j \cos k \\
 &= \cos j \sin k + e^{i\beta+i\gamma-i\delta} \sin j \cos k
-\end{align}
+\end{align*}
 %
 which together imply that $\delta = \gamma + \beta$.
 %
 Substituting back into the previous equation,
 %
-\begin{align}
+\begin{align*}
 \cos j \sin k + e^{i\beta+i\gamma-i\delta} \sin j \cos k &= \cos j \sin k + \sin j \cos k \\
 &= \sin \left( j + k \right) \\
 &= 0 \\
 \implies j &= -k
-\end{align}
+\end{align*}
 %
 Substituting back into the definition of $U$ and multiplying by a global phase of $\expo{-i\frac{\beta+\gamma}{2}}$,
-\begin{align}
+\begin{align*}
 U &= e^{-i\frac{\beta+\gamma}{2}} e^{i\alpha} \begin{pmatrix} \cos j & -e^{i\beta} \sin j \\ e^{i\gamma} \sin j & e^{i\delta} \cos j \end{pmatrix} \\
 &= e^{-i\frac{\beta+\gamma}{2}} \begin{pmatrix} e^{i\alpha} \cos j & -e^{i\alpha+i\beta} \sin j \\ e^{i\alpha+i\gamma} \sin j & e^{i\alpha+i\beta+i\gamma} \cos j \end{pmatrix} \\
 &= \begin{pmatrix} e^{i\alpha-i\frac{\beta}{2}-\frac{\gamma}{2}} \cos j & -e^{i\alpha+i\frac{\beta}{2}-i\frac{\gamma}{2}} \sin j \\ e^{i\alpha-i\frac{\beta}{2}+\frac{\gamma}{2}} \sin j & e^{i\alpha+i\frac{\beta}{2}+\frac{\gamma}{2}} \cos j \end{pmatrix} \\
-\end{align}
+\end{align*}
 \endgroup

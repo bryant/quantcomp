@@ -2,13 +2,13 @@
 %
 \par Letting $I \otimes X^c$ denote controlled-NOT conditioned on the first qubit, the left circuit diagram is:
 %
-\begin{align}
+\begin{align*}
 J &= \left( H \otimes H \right) \left( I \otimes X^c \right) \left( H \otimes H \right) \\
 &= \frac12 \left( H \otimes H \right) \begin{pmatrix} 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 0 & 1 \\ 0 & 0 & 1 & 0 \end{pmatrix} \begin{pmatrix} 1 & 1 & 1 & 1 \\ 1 & -1 & 1 & -1 \\ 1 & 1 & -1 & -1 \\ 1 & -1 & -1 & 1 \end{pmatrix} \\
 &= \frac14 \begin{pmatrix} 1 & 1 & 1 & 1 \\ 1 & -1 & 1 & -1 \\ 1 & 1 & -1 & -1 \\ 1 & -1 & -1 & 1 \end{pmatrix} \begin{pmatrix} 1 & 1 & 1 & 1 \\ 1 & -1 & 1 & -1 \\ 1 & -1 & -1 & 1 \\ 1 & 1 & -1 & -1 \end{pmatrix} \\
 &= \begin{pmatrix} 1 & 0 & 0 & 0 \\ 0 & 0 & 0 & 1 \\ 0 & 0 & 1 & 0 \\ 0 & 1 & 0 & 0 \end{pmatrix} \\
 &= X^c \otimes I
-\end{align}
+\end{align*}
 %
 which is the right diagram.
 %
@@ -16,12 +16,12 @@ which is the right diagram.
 %
 Under the $\ket{\pm}$ basis, the operation $X^c \otimes I$ becomes:
 %
-\begin{align}
+\begin{align*}
 L &= \left( B \otimes B \right) J \left( B \otimes B \right)^{-1} \\
 &= \left( B \otimes B \right) J \left( B \otimes B \right) \\
 &= \left( H \otimes H \right) \left( X^c \otimes I \right) \left( H \otimes H \right) \\
 &= I \otimes X^c
-\end{align}
+\end{align*}
 %
 In other words, CNOT conditioned on the second qubit in the $\ket{0, 1}$ basis is equivalent to CNOT conditioned on the first qubit in the $\ket{\pm}$ basis.
 %
