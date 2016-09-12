@@ -1,0 +1,21 @@
+\begingroup
+\newcommand{\roto}[2]{R_{#1} \left( #2 \right)}
+\newcommand{\expo}[1]{\exp \left( #1 \right)}
+%
+\par From Exercise 4.08, $H$ will rotate a Bloch vector by around $\left( 1, 0, 1 \right)$ by $\pi$.
+%
+Intuitively, this rotation is equivalent to z-rotating by $\pi$ and then y-rotating by $\pi / 2$.
+%
+Confirming algebraically:
+%
+\begin{align*}
+H &= i \roto{\frac{\left( 1, 0, 1 \right)}{\sqrt{2}}}{\pi} \\
+&= i \roto{z}{2 \pi} \roto{y}{\frac{\pi}{2}} \roto{z}{\pi} \\
+&= i I \left[ \frac{1}{\sqrt{2}} \left( I - i Y \right) \right] \left( -i Z \right) \\
+&= \frac{1}{\sqrt{2}} \left( Z - iYZ \right) \\
+&= \frac{1}{\sqrt{2}} \left( Z + X \right) && \text{since $YZ = iX$} \\
+&= H
+\end{align*}
+%
+So, $H = \expo{\pi i / 2} ABC$ where $A = \roto{y}{\pi / 4}$, $B = \roto{y}{-\pi / 4} \roto{z}{\pi / 2}$, and $C = \roto{z}{-\pi / 2}$.
+\endgroup
