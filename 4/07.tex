@@ -1,0 +1,17 @@
+\begingroup
+\newcommand{\roto}[2]{R_{#1} \left( #2 \right)}
+\newcommand{\coso}[1]{\cos \left( #1 \right)}
+\newcommand{\sino}[1]{\sin \left( #1 \right)}
+%
+\par Since $XY = - YX$, $XYX = -YX^2 = -Y$.
+%
+Then:
+%
+\begin{align*}
+X \roto{y}{\theta} X &= \coso{\theta} I - i \sino{\theta} XYX \\
+&= \coso{\theta} I + i \sino{\theta} Y \\
+&= \coso{\theta} I - i \sino{-\theta} Y
+&= \roto{y}{-\theta}
+\end{align*}
+%
+\endgroup
