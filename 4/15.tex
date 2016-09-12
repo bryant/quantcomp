@@ -1,0 +1,35 @@
+\begingroup
+\newcommand{\roto}[2]{R_{#1} \left( #2 \right)}
+\newcommand{\coso}[1]{\cos \left( #1 \right)}
+\newcommand{\sino}[1]{\sin \left( #1 \right)}
+%
+\par \proplabel{Setup}: Let $m, n \in \reals^3$, $\lVert m \rVert = \lVert n \rVert = 1$.
+%
+Using the identities in 4.06:
+%
+\begin{align*}
+\left( m \cdot \sigma \right) \left( n \cdot \sigma \right) &= \left( m_x X + m_y Y + m_z Z \right) \left( n_x X + n_y Y + n_z Z \right) \\
+&= \left( m \cdot n \right) I + \left( m_y n_z - m_z n_y \right) YZ + \left( m_z n_x - m_x n_z \right) ZX \notag \\
+&\phantom{={}} + \left( m_x n_y - m_y n_z \right) XY \\
+&= \left( m \cdot n \right) I + i \left( m_y n_z - m_z n_y \right) X + i \left( m_z n_x - m_x n_z \right) Y \notag \\
+&\phantom{={}} + i \left( m_x n_y - m_y n_z \right) Z \\
+&= \left( m \cdot n \right) I + i \left( m \times n \right) \cdot \sigma
+\end{align*}
+%
+\begin{enumerate}
+\item Letting $c_i = \coso{\beta_i / 2}$ and $s_i = \sino{\beta_i / 2}$, the composition $C$ of two qubit rotations becomes:
+%
+\begin{align*}
+C &= \roto{n_2}{\beta_2} \roto{n_1}{\beta_1} \\
+&= \left[ c_2 I - i s_2 \left( n_2 \cdot \sigma \right) \right] \left[ c_1 I - i s_1 \left( n_1 \cdot \sigma \right) \right] \\
+&= c_1 c_2 I - s_1 s_2 \left[ \left( n_2 \cdot n_1 \right) I + i \left( n_2 \times n_1 \right) \cdot \sigma \right] \notag \\
+&\phantom{= c_1 c_2 I {}} - i \left[ c_1 s_2 \left( n_2 \cdot \sigma \right) + s_1 c_2 \left( n_1 \cdot \sigma \right) \right] \\
+&= \left[ c_1 c_2 - s_1 s_2 \left( n_2 \cdot n_1 \right) \right] I - i \left[ s_1 s_2 \left( n_2 \times n_1 \right) + c_1 s_2 n_2 + s_1 c_2 n_1 \right] \cdot \sigma \\
+\end{align*}
+%
+Thus, $C = \roto{n_{12}}{\beta_{12}}$, where $\coso{\beta_{12} / 2} = c_1 c_2 - s_1 s_2 \left( n_2 \cdot n_1 \right)$ and $\sino{\beta_{12} / 2} n_{12} = s_1 s_2 \left( n_2 \times n_1 \right) + c_1 s_2 n_2 + s_1 c_2 n_1$.
+%
+\item If $\beta_1 = \beta_2$ and $n_1 = z$, then $c_1 = c_2 = c$, $s_1 = s_2 = s$, $\coso{\beta_{12} / 2} = c^2 - s^2 \left( n_2 \cdot z \right)$, and $\sino{\beta_{12} / 2} n_{12} = s^2 \left( n_2 \times z \right) + sc \left( n_2 + n_1 \right)$.
+%
+\end{enumerate}
+\endgroup
