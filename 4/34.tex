@@ -1,0 +1,63 @@
+\begingroup
+\newcommand{\ketbra}[2]{\ket{#1} \bra{#2}}
+\newcommand{\pr}[1]{\Pr \left( #1 \right)}
+%
+\par The circuit input is $\ket{0} \ket{\psi}$.
+%
+After the first Hadamard gate:
+%
+$$
+\ket{0} \ket{\psi} \xrightarrow{H \otimes I} \frac{\left( \ket{0} + \ket{1} \right) \ket{\psi}}{\sqrt{2}}
+$$
+%
+After the $U$ conditioned on the first qubit:
+%
+$$
+\frac{\left( \ket{0} + \ket{1} \right) \ket{\psi}}{\sqrt{2}} \xrightarrow{C^0 \left( U \right)} \frac{\ket{0} \ket{\psi} + \ket{1} U \ket{\psi}}{\sqrt{2}}
+$$
+%
+After the second Hadamard:
+%
+\begin{align*}
+\frac{\ket{0} \ket{\psi} + \ket{1} U \ket{\psi}}{\sqrt{2}} &\xrightarrow{H \otimes I} \frac{\frac{\ket{0} + \ket{1}}{\sqrt{2}} \ket{\psi} + \frac{\ket{0} - \ket{1}}{\sqrt{@}} U \ket{\psi}}{\sqrt{2}} \\
+&= \frac{\ket{0} \left( \ket{\psi} + U \ket{\psi} \right) + \ket{1} \left( \ket{\psi} - U \ket{\psi}  \right)}{2} \\
+&= \frac{\ket{0} \left( I + U \right) \ket{\psi} + \ket{1} \left( I - U \right ) \ket{\psi}}{2} \\
+&= \ket{\psi'}
+\end{align*}
+%
+\par The only possible observable is $\sigma_z \otimes I = \ketbra{0}{0} \otimes I - \ketbra{1}{1} \otimes I = P_0 - P_1$ since the measurement is taken in the computational basis on only on the first qubit, and the expected measurement outcomes are $\pm 1$.
+%
+\par The probability of outcome $+1$ is:
+%
+\begin{align*}
+\pr{+1} &= \braket{\psi' | P_0 | \psi'} \\
+&= \frac{\bra{0} \bra{\psi} \left( I + U^* \right) + \bra{1} \bra{\psi} \left( I - U^* \right )}{2} \frac{\ket{0} \left( I + U \right) \ket{\psi}}{2} \\
+&= \frac{\braket{\psi | I + U^* + U + I | \psi}}{4} \\
+&= \frac{\braket{\psi | I + U | \psi}}{2} \\
+&= \frac{1 + \braket{\psi | U | \psi}}{2}
+\end{align*}
+%
+Since $U$ is both Hermitian and unitary, without loss of generality let $U = \ketbra{a}{a} - \ketbra{b}{b}$ where $\ket{a}$ and $\ket{b}$ form an orthonormal basis.
+%
+Thus,
+%
+\begin{align*}
+\pr{+1} &= \frac{1 + \braket{\psi | U | \psi}}{2} \\
+&= \frac{1 + \abs{\braket{\psi|a}}^2 - \abs{\braket{\psi|b}}^2}{2} \\
+&= \frac{\abs{\braket{\psi|a}}^2 + \abs{\braket{\psi|b}}^2 + \abs{\braket{\psi|a}}^2 - \abs{\braket{\psi|b}}^2}{2} \\
+&= \abs{\braket{\psi|a}}^2
+\end{align*}
+%
+So the probability of getting $+1$ from measuring the first qubit is exactly equal to getting $+1$ when measuring $\ket{\psi}$ in the $U$ basis.
+%
+\par Similarly, the probability of $-1$ is:
+%
+\begin{align*}
+\pr{-1} &= \braket{\psi' | P_1 | \psi'} \\
+&= \frac{\bra{0} \bra{\psi} \left( I + U^* \right) + \bra{1} \bra{\psi} \left( I - U^* \right )}{2} \frac{\ket{1} \left( I - U \right) \ket{\psi}}{2} \\
+&= \frac{\braket{\psi | 2 I - 2 U | \psi}}{4} \\
+&= \frac{1 - \braket{\psi | U | \psi}}{2} \\
+&= \frac{\abs{\braket{\psi|a}}^2 + \abs{\braket{\psi|b}}^2 - \abs{\braket{\psi|a}}^2 + \abs{\braket{\psi|b}}^2}{2} \\
+&= \abs{\braket{\psi|b}}^2
+\end{align*}
+\endgroup
