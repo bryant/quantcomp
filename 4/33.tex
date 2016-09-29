@@ -1,0 +1,56 @@
+\begingroup
+\newcommand{\ketbra}[2]{\ket{#1} \bra{#2}}
+%
+\par Let the state of the two-qubit system be:
+$$
+\ket{\psi} = \begin{pmatrix} a \\ b \\ c \\ d \end{pmatrix}, \quad a, b, c, d \in \complex
+$$
+%
+After the $C_0 \left( X \right)$ and $H_0$, the state will be:
+%
+\begin{align*}
+\ket{\psi'} &= \left( H \otimes I \right) \begin{pmatrix} 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 0 & 1 \\ 0 & 0 & 1 & 0 \end{pmatrix} \ket{\psi} \\
+&= \frac{1}{\sqrt{2}} \begin{pmatrix} 1 & 0 & 1 & 0 \\ 0 & 1 & 0 & 1 \\ 1 & 0 & -1 & 0 \\ 0 & 1 & 0 & -1 \end{pmatrix} \begin{pmatrix} a \\ b \\ d \\ c \end{pmatrix} \\
+&= \frac{1}{\sqrt{2}} \begin{pmatrix} a + d \\ b + c \\ a - d \\ b - c \end{pmatrix}
+\end{align*}
+%
+Measuring both qubits in the computational basis will project $\ket{\psi'}$ onto its components:
+%
+\begin{align*}
+\ket{\psi'} & \xrightarrow{\ketbra{00}{00}} \frac{1}{\sqrt{2}} \begin{pmatrix} a + d \\ 0 \\ 0 \\ 0 \end{pmatrix} && \text{with probability $\frac{\abs{a+d}^2}{2}$} \\
+\ket{\psi'} & \xrightarrow{\ketbra{01}{01}} \frac{1}{\sqrt{2}} \begin{pmatrix} 0 \\ b + c \\ 0 \\ 0 \end{pmatrix} && \text{with probability $\frac{\abs{b+c}^2}{2}$} \\
+\ket{\psi'} & \xrightarrow{\ketbra{10}{10}} \frac{1}{\sqrt{2}} \begin{pmatrix} 0 \\ 0 \\ a - d \\ 0 \end{pmatrix} && \text{with probability $\frac{\abs{a-d}^2}{2}$} \\
+\ket{\psi'} & \xrightarrow{\ketbra{11}{11}} \frac{1}{\sqrt{2}} \begin{pmatrix} 0 \\ 0 \\ 0 \\b - c \end{pmatrix} && \text{with probability $\frac{\abs{b-c}^2}{2}$}
+\end{align*}
+%
+\par On the other hand, consider the Bell states:
+%
+\begin{align*}
+\ket{\beta_0} &= \frac{\ket{00} + \ket{11}}{\sqrt{2}} \\
+\ket{\beta_1} &= \frac{\ket{01} + \ket{10}}{\sqrt{2}} \\
+\ket{\beta_2} &= \frac{\ket{00} - \ket{11}}{\sqrt{2}} \\
+\ket{\beta_3} &= \frac{\ket{01} - \ket{10}}{\sqrt{2}}
+\end{align*}
+%
+Letting $E_m = \ketbra{\beta_m}{\beta_m}$, we have $\sum_m{E_m} = I$ since the $\ket{\beta_m}$ form an orthonormal basis over the Hermitian space of two qubits.
+%
+\par In other words, the $E_m$ form a POVM for the measurement operators:
+%
+\begin{align*}
+M_0 &= \frac{1}{\sqrt{2}} \begin{pmatrix} 1 & 0 & 0 & 1 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \end{pmatrix} \\
+M_1 &= \frac{1}{\sqrt{2}} \begin{pmatrix} 0 & 0 & 0 & 0 \\ 0 & 1 & 1 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \end{pmatrix} \\
+M_2 &= \frac{1}{\sqrt{2}} \begin{pmatrix} 1 & 0 & 0 & -1 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \end{pmatrix} \\
+M_3 &= \frac{1}{\sqrt{2}} \begin{pmatrix} 0 & 0 & 0 & 0 \\ 0 & 1 & -1 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \end{pmatrix}
+\end{align*}
+%
+where $E_m = M_m ^* M_m$.
+%
+\par Measuring $\ket{\psi}$ directly in this basis results in:
+%
+\begin{align*}
+\ket{\psi} & \xrightarrow{M_0} \frac{1}{\sqrt{2}} \begin{pmatrix} a + d \\ 0 \\ 0 \\ 0 \end{pmatrix} && \text{with probability $\frac{\abs{a+d}^2}{2}$} \\
+\ket{\psi} & \xrightarrow{M_1} \frac{1}{\sqrt{2}} \begin{pmatrix} 0 \\ b + c \\ 0 \\ 0 \end{pmatrix} && \text{with probability $\frac{\abs{b+c}^2}{2}$} \\
+\ket{\psi} & \xrightarrow{M_2} \frac{1}{\sqrt{2}} \begin{pmatrix} 0 \\ 0 \\ a - d \\ 0 \end{pmatrix} && \text{with probability $\frac{\abs{a-d}^2}{2}$} \\
+\ket{\psi} & \xrightarrow{M_3} \frac{1}{\sqrt{2}} \begin{pmatrix} 0 \\ 0 \\ 0 \\b - c \end{pmatrix} && \text{with probability $\frac{\abs{b-c}^2}{2}$}
+\end{align*}
+\endgroup
