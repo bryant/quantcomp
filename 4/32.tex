@@ -1,0 +1,43 @@
+\begingroup
+\newcommand{\tr}[1]{\mathrm{tr} \left[ #1 \right]}
+\newcommand{\reduced}[2]{\mathrm{tr}_#1 \left[ #2 \right]}
+\newcommand{\ketbra}[2]{\ket{#1} \bra{#2}}
+%
+\par Equation 4.40 follows from equation 2.152.
+%
+Namely,
+%
+\begin{align*}
+\rho' &= \sum_m{M_m \rho M_m ^*} && \text{equation 2.152} \\
+&= P_0 \rho P_0 ^* + P_1 \rho P_1 ^* \\ &= P_0 \rho P_0 + P_1 \rho P_1 && \text{since $P_r^2 = P_r$}
+\end{align*}
+%
+where $P_r = I \otimes \ket{i} \bra{i}$ and the observable is $I \otimes Z = P_0 - P_1$.
+%
+\par Suppose $\rho = \sum_i{p_i \ket{\psi_i} \bra{\psi_i}}$, where
+%
+$$
+\ket{\psi_i} = \frac{1}{\sqrt{N_i}} \sum_{j=0}^{N_i - 1}{\ket{a_{i, j}} \ket{b_{i, j}}}
+$$
+%
+Then,
+%
+\begin{align*}
+P_r \rho P_r &= P_r \left[ \sum_i{p_i \frac{1}{N_i} \left( \sum_{j, k}^{N_i - 1}{\ketbra{a_{i, j}}{a_{i, k}} \otimes \ketbra{b_{i, j}}{b_{i, k}}} \right)} \right] P_r \\
+&= \sum_i{\frac{p_i}{N_i} \left( \sum_{j, k}^{N_i - 1}{\ketbra{a_{i, j}}{a_{i, k}} \otimes \ket{r} \braket{r|b_{i, j}} \braket{b_{i, k}|r} \bra{r}} \right)}
+\end{align*}
+%
+Partial trace $\reduced{2}{\rho'}$:
+%
+\begin{align*}
+\reduced{2}{\rho'} &= \reduced{2}{P_0 \rho P_0} + \reduced{2}{P_1 \rho P_1} \\
+&= \sum_i{\frac{p_i}{N_i} \left( \sum_{j, k}^{N_i - 1}{\ketbra{a_{i, j}}{a_{i, k}} \tr{\ket{0} \braket{0|b_{i, j}} \braket{b_{i, k}|0} \bra{0}}} \right)} \\
+&\phantom{={}} + \sum_i{\frac{p_i}{N_i} \left( \sum_{j, k}^{N_i - 1}{\ketbra{a_{i, j}}{a_{i, k}} \tr{\ket{1} \braket{1|b_{i, j}} \braket{b_{i, k}|1} \bra{1}}} \right)} \\
+&= \sum_i{\frac{p_i}{N_i} \left( \sum_{j, k}^{N_i - 1}{\braket{b_{i, k}|0} \braket{0|b_{i, j}} \ketbra{a_{i, j}}{a_{i, k}} + \braket{b_{i, k}|1} \braket{1|b_{i, j}} \ketbra{a_{i, j}}{a_{i, k}}} \right)} \\
+&= \sum_i{\frac{p_i}{N_i} \left( \sum_{j, k}^{N_i - 1}{\bra{b_{i, k}} \left( \ketbra{0}{0} + \ketbra{1}{1} \right) \ket{b_{i, j}} \ketbra{a_{i, j}}{a_{i, k}}} \right)} \\
+&= \sum_i{\frac{p_i}{N_i} \left( \sum_{j, k}^{N_i - 1}{\braket{b_{i, k}|b_{i, j}} \ketbra{a_{i, j}}{a_{i, k}}} \right)} \\
+&= \sum_i{\frac{p_i}{N_i} \left( \sum_{j, k}^{N_i - 1}{\tr{\ketbra{b_{i, j}}{b_{i, k}}} \ketbra{a_{i, j}}{a_{i, k}}} \right)} \\
+&= \sum_i{\frac{p_i}{N_i} \left( \sum_{j, k}^{N_i - 1}{\reduced{2}{\ketbra{a_{i, j}}{a_{i, k}} \otimes \ketbra{b_{i, j}}{b_{i, k}}}} \right)} \\
+&= \reduced{2}{\rho}
+\end{align*}
+\endgroup
