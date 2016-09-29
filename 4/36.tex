@@ -1,0 +1,67 @@
+\begingroup
+%
+\par Quantum AND-gate using Toffoli:
+%
+\begin{verbatim}
+a --+-- a
+    |
+b --+-- b
+    |
+0 -[X]- a && b
+\end{verbatim}
+%
+\par OR-gate using Toffoli and $X$:
+%
+\begin{verbatim}
+a --[X]--+--[X]-- a
+         |
+b --[X]--+--[X]-- b
+         |
+1 ------[X]------ !(!a && !b) == a || b
+\end{verbatim}
+%
+\par A XOR-gate is equivalent to a controlled-$X$ gate:
+%
+\begin{verbatim}
+a --+-- a
+    |
+b -[X]- a ^ b
+\end{verbatim}
+%
+\par Half-adder:
+%
+\begin{verbatim}
+a --+--+-- a
+    |  |
+b --+-[X]- a ^ b
+    |
+0 -[X]---- a && b == carry
+\end{verbatim}
+%
+\par Full-adder:
+%
+\begin{verbatim}
+a --+--+------------------ a
+    |  |
+b --+-[X]-+--+------------ a ^ b
+    |     |  |
+0 -[X]----------[X]-+-[X]- a && b
+          |  |      |
+c --------+-[X]----------- a ^ b ^ c  <===
+          |         |
+0 -------[X]----[X]-+-[X]- (a ^ b) && c
+                    |
+1 -----------------[X]---- ((a ^ b) && c) || (a && b) == carry'  <===
+\end{verbatim}
+%
+where the input rungs are $a, b, c$ representing the first two input and carry bits, respectively; and the output rungs of interest are $a \oplus b \oplus c$ and the carry bit.
+%
+\par With the half- and full-adders, the two-bit adder becomes:
+%
+\begin{verbatim}
+x_1 -----------[    ]-- carry
+y_1 -----------[ FA ]-- x_1 ^ y_1 ^ (x_0 && y_0)
+x_0 ---[ HA ]--[    ]
+y_0 ---[    ]---------- x_0 ^ y_0
+\end{verbatim}
+\endgroup
