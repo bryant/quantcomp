@@ -9,4 +9,4 @@ python build.py -a [list of chapter dirs...]
 
 [Built][1]
 
-[1]: http://bryant.github.io/quantcomp/solutions.pdf
+[1]: http://bryant.github.io/quantcomp/worked_exercises.pdf
